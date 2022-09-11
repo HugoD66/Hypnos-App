@@ -1,0 +1,63 @@
+Faire:
+    Mettre active si open dans les lien bar nav
+
+    footer :   position: absolute;
+               bottom: 0; ?
+
+    Creer bibliotheque imagerie            7 HOTEL, 7ROOM+3PAR ROOM === 7HOTEL + 21ROOM ( sa race )
+
+
+    Wireframes
+
+
+    Pages manquantes :
+
+        ContactUs
+        Reserver
+        Register
+        Connexion
+        ADMIN: Gerant creation;Hotel Creation;      Gerant update;Hotel Update;
+
+
+
+
+    Finir Zoning clientGestion
+    A revoir intégrallement ?
+
+
+
+A VOIR ??????
+
+    Modal pour annulation reservation ?
+    ActiveUser apres  Enregistrement compte ??   (vérification email <==== non demandé);
+    Make success controlleurs !!!!   template  deja  initialisé?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+BUNDLES :
+
+    Mit:
+        Annotation
+        Twig
+        Form
+        Validator
+        Profiler
+        Marker
+        Webpack-encore
+    A mettre :
+        Mailer
+        Google-mailer
+        Doctrine

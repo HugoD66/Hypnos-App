@@ -1,0 +1,250 @@
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '_design';
+
+body {
+  margin: auto;
+  position: relative;
+}
+
+nav {
+  background-image: url("../../public/picture/banque-image/nav-footer/BackNav4-AvecBack.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  min-width: 100%;
+  width: 100%;
+  left: 0;
+  right: 0;
+  .listeNav {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    img {
+      margin: 5%;
+      &:hover {
+        transform: scale(1.2);
+        transition: all 0.3s ease-in-out;
+      }
+    }
+  }
+  .listeButtons {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    margin-right: 5%;
+    button {
+      font-size: 28px;
+      margin-bottom: 13%;
+      margin-left: 7%;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline ;
+        }
+      }
+    }
+  }
+
+}
+footer {
+  background-image: url("../../public/picture/banque-image/nav-footer/BackFooter-AvecBack.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  background-size: 100%;
+  .listeFooter {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    img {
+      margin: 5%;
+    }
+  }
+  .iconesStudy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 7%;
+    .footerStudy {
+      text-align: center;
+    }
+  }
+  .returnTop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 4%;
+    font-size: 28px;
+    a {
+      text-decoration: none;
+      color: $marronDark;
+      font-family: $button;
+      font-weight: lighter;
+      font-size: 16px;
+    }
+    img {
+      color: $marronDark;
+    }
+  }
+}
+.accueil {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  background-image: url('../../public/picture/banque-image/acceuil/home-test.jpg');
+  background-position: right;
+  background-repeat: no-repeat;
+  background-size: 80%;
+  clear: both;
+  height: 35em;
+
+  .titleHypnos {
+    h1 h2 {
+      margin-right: 15%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      z-index: +1;
+      padding: 10%;
+      float: left;
+    }
+    h1 {
+      background-color: white;
+      font-weight: bolder;
+      color: black;
+      font-size: 125px;
+    }
+    h2 {
+      color: black;
+      text-shadow: 2px 0px 8px rgba(0,0,0,1);
+
+      font-size: 25px;
+    }
+  }
+}
+.titleCustom {
+  .tittleList {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    width: 80%;
+    vertical-align: bottom;
+    margin: 5% auto 0px;
+  }
+  .title {
+    font-size: 45px;
+    background-color: $marronLight;
+    text-align: center;
+    font-family: $title;
+    border: 2px solid #786f58;
+    padding: 1%;
+  }
+  .littleTitle {
+    background-color: $marronMedium;
+    font-size: 20px;
+    text-align: center;
+    border: 2px solid $marronDark;
+    font-family: $subTitle;
+    padding: 1%;
+
+  }
+  .barreHorizontale {
+    position: relative;
+    width: 80%;
+    background-color: $marronDark;
+    height: 2px;
+    float: top;
+    margin: 0px auto 5%;
+  }
+}
+.presentation {
+  margin: 10%;
+  display: flex;
+  flex-direction: row;
+  p {
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+    font-family: $textOne;
+  }
+  button {
+    margin: auto;
+  }
+}
+.contactHome {
+  margin: 10%;
+  flex-direction: row;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  p {
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+    font-family: $textOne;
+  }
+
+}
+.carousel {
+  width: 80%;
+  margin: auto;
+}
+
+
+
+
+  //Boutons
+.buttonOne {
+  display: inline-block;
+  padding: .75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-family: $button;
+  letter-spacing: .15rem;
+  transition: all .3s;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #79dfc3;
+    border-radius: 10rem;
+    z-index: -2;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: darken(#79dfc3, 15%);
+    transition: all .3s;
+    border-radius: 10rem;
+    z-index: -1;
+  }
+  &:hover {
+    color: #fff;
+    &:before {
+      width: 100%;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: #2c3034;
+  }
+}
