@@ -11796,6 +11796,7 @@ nav {
   background-size: 100%;
   min-width: 100%;
   width: 100%;
+  height: 25em;
   left: 0;
   right: 0;
 }
@@ -11875,6 +11876,37 @@ footer .returnTop img {
   color: #625f48;
 }
 
+.titleCustom .tittleList {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  width: 80%;
+  vertical-align: bottom;
+  margin: 5% auto 0px;
+}
+.titleCustom .title {
+  font-size: 45px;
+  background-color: #eee6d6;
+  text-align: center;
+  font-family: "Bai Jamjuree", sans-serif;
+  padding: 1%;
+}
+.titleCustom .littleTitle {
+  background-color: #c8b48f;
+  font-size: 20px;
+  text-align: center;
+  font-family: Consolas, serif;
+  padding: 1%;
+}
+.titleCustom .barreHorizontale {
+  position: relative;
+  width: 80%;
+  background-color: #c8b48f;
+  height: 2px;
+  float: top;
+  margin: 0px auto 5%;
+}
+
 .accueil {
   display: flex;
   justify-content: start;
@@ -11909,39 +11941,6 @@ footer .returnTop img {
   font-size: 25px;
 }
 
-.titleCustom .tittleList {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  width: 80%;
-  vertical-align: bottom;
-  margin: 5% auto 0px;
-}
-.titleCustom .title {
-  font-size: 45px;
-  background-color: #eee6d6;
-  text-align: center;
-  font-family: "Bai Jamjuree", sans-serif;
-  border: 2px solid #786f58;
-  padding: 1%;
-}
-.titleCustom .littleTitle {
-  background-color: #c8b48f;
-  font-size: 20px;
-  text-align: center;
-  border: 2px solid #625f48;
-  font-family: Consolas, serif;
-  padding: 1%;
-}
-.titleCustom .barreHorizontale {
-  position: relative;
-  width: 80%;
-  background-color: #625f48;
-  height: 2px;
-  float: top;
-  margin: 0px auto 5%;
-}
-
 .presentation {
   margin: 10%;
   display: flex;
@@ -11974,6 +11973,24 @@ footer .returnTop img {
 .carousel {
   width: 80%;
   margin: auto;
+}
+
+.customFormPic {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  display: flex;
+  width: 90%;
+  background-image: url("../../public/picture/banque-image/picture-form/register-pick.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 60%;
+}
+.customFormPic .customFormBars {
+  margin-left: 18%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .buttonOne {

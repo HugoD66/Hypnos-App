@@ -1,4 +1,6 @@
 Faire:
+BOUTON ACCES A MON COMPTE EGALEMENT !!!!  MARCHE PAS
+
     Mettre active si open dans les lien bar nav
 
     footer :   position: absolute;
@@ -6,6 +8,10 @@ Faire:
 
     Creer bibliotheque imagerie            7 HOTEL, 7ROOM+3PAR ROOM === 7HOTEL + 21ROOM ( sa race )
 
+    finir de styliser le formulaire register
+                        completement le formulaire login
+    validation registerform
+    faire redirection si dejas connecté =>  sur BOUTON CREATION COMPTE, AVEC PHRASE ACCROCHE SALE MAMEN           label -> rejoingnez nous
 
     Wireframes
 
@@ -34,6 +40,9 @@ A VOIR ??????
 
 
 
+protection pour hotel ( seulement admin):
+            # - { path: ^/gestionhoteltadadi, roles: ROLE_ADMIN }
+                et avec twig {{ if app.user.admin chépakoi }}
 
 
 
@@ -50,6 +59,7 @@ A VOIR ??????
 BUNDLES :
 
     Mit:
+
         Annotation
         Twig
         Form
@@ -57,7 +67,8 @@ BUNDLES :
         Profiler
         Marker
         Webpack-encore
-    A mettre :
+        Security
+        orm-pack
         Mailer
         Google-mailer
         Doctrine

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <meta name="description"
@@ -32,9 +32,29 @@
                     <img src="{{ asset('picture/banque-image/logo-icones/Logo-HypnosWithoutBack.png') }}" width="150" height="140" alt="Logo de la marque Hypnos">
                 </a>
                 <div class="listeButtons">
+
+                    {% if app.user %}
+                        {% if app.user.roles == ['ROLE_ADMIN'] %}
+                            <button type="button"><a href="{{ path('app_admin_gestion', {'id': admin.id}) }}">Mon compte</a></button>
+                        {% elseif app.user.roles == ['ROLE_USER'] %}
+                            <button type="button"><a href="{{ path('app_user_gestion', {'id': user.id}) }}">Mon compte</a></button>
+<!-- Rajouter Manager -->
+                        {% endif %}
+                    {% else %}
+                    {% endif %}
+
+
                     <button type="button"><a href="{{ path('app_home') }}">Accueil</a></button>
-                    <button type="button">Se connecter</button>
-                    <button type="button"><a href="{{ path('app_liste_etablissement') }}">Nos Hotels</a></button>
+
+                    {% if app.user %}
+                        <button type="button"><a href="{{ path('app_logout') }}">Déconnexion</a></button>
+                    {% else %}
+                        <button type="button"><a href="{{ path('app_login') }}">Connexion</a></button>
+                    {% endif %}
+                        <button type="button"><a href="{{ path('app_liste_etablissement') }}">Nos Hotels</a></button>
+
+
+
                 </div>
             </div>
         </div>
@@ -64,7 +84,6 @@
                         <img src="{{ asset('picture/banque-image/logo-icones/arrow-up.svg') }}" width="30px"  height="30px" alt="Logo Github">
                         <br>
                         Haut de page
-
                     </a>
                 </div>
             </div>

@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ManagerGestionController extends AbstractController
 {
     //Mettre /{id} i touti
-    #[Route('/manager-gestion', name: 'app_manager_gestion')]
+    #[Route('/manager', name: 'app_manager_gestion')]
     public function index(): Response
     {
         return $this->render('gestion/manager.html.twig', [
