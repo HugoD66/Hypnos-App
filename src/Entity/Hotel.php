@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\HotelRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -40,6 +42,14 @@ class Hotel
     #[ORM\ManyToOne(inversedBy: 'hotel')]
     #[ORM\JoinColumn(nullable: true)]
     private ?User $gerant_admin = null;
+
+    #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Suite::class)]
+    private Collection $suites;
+
+    public function __construct()
+    {
+        $this->suites = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -116,5 +126,39 @@ class Hotel
         $this->gerant_admin = $gerant_admin;
 
         return $this;
+    }
+
+    /**
+     * @return Collection<int, Suite>
+     */
+    public function getSuites(): Collection
+    {
+        return $this->suites;
+    }
+
+    public function addSuite(Suite $suite): self
+    {
+        if (!$this->suites->contains($suite)) {
+            $this->suites->add($suite);
+            $suite->setHotel($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSuite(Suite $suite): self
+    {
+        if ($this->suites->removeElement($suite)) {
+            // set the owning side to null (unless already changed)
+            if ($suite->getHotel() === $this) {
+                $suite->setHotel(null);
+            }
+        }
+
+        return $this;
+    }
+    public function __toString()
+    {
+        return $this->name;
     }
 }

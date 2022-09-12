@@ -4,10 +4,12 @@ namespace App\Entity;
 
 use App\Repository\ManagerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: ManagerRepository::class)]
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
 class Manager implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
@@ -32,6 +34,9 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255)]
     private ?string $last_name = null;
+
+    #[ORM\OneToOne(inversedBy: 'manager', cascade: ['persist', 'remove'])]
+    private ?Suite $suite = null;
 
     public function getId(): ?int
     {
@@ -123,6 +128,18 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
     public function setLastName(string $last_name): self
     {
         $this->last_name = $last_name;
+
+        return $this;
+    }
+
+    public function getSuite(): ?Suite
+    {
+        return $this->suite;
+    }
+
+    public function setSuite(?Suite $suite): self
+    {
+        $this->suite = $suite;
 
         return $this;
     }

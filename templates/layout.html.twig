@@ -36,9 +36,10 @@
                     {% if app.user %}
                         {% if app.user.roles == ['ROLE_ADMIN'] %}
                             <button type="button"><a href="{{ path('app_admin_gestion', {'id': admin.id}) }}">Mon compte</a></button>
+                        {% elseif app.user.roles == ['ROLE_MANAGER'] %}
+                            <button type="button"><a href="{{ path('app_manager_gestion', {'id': user.id}) }}">Mon compte</a></button>
                         {% elseif app.user.roles == ['ROLE_USER'] %}
                             <button type="button"><a href="{{ path('app_user_gestion', {'id': user.id}) }}">Mon compte</a></button>
-<!-- Rajouter Manager -->
                         {% endif %}
                     {% else %}
                     {% endif %}

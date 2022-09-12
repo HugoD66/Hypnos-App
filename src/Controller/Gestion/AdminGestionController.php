@@ -11,7 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class AdminGestionController extends AbstractController
 {
     #[Route('/admin/{id}', name: 'app_admin_gestion')]
-    public function index(ManagerRegistry $doctrine,int $id): Response
+    public function index(ManagerRegistry $doctrine,
+                          int $id): Response
     {
         $admin = $doctrine->getRepository(User::class)->find($id);
 

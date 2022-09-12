@@ -7,7 +7,7 @@ BOUTON ACCES A MON COMPTE EGALEMENT !!!!  MARCHE PAS
                bottom: 0; ?
     faire redirection succes creation manager ou hotel( avec redirectresponse)
     Creer bibliotheque imagerie            7 HOTEL, 7ROOM+3PAR ROOM === 7HOTEL + 21ROOM ( sa race )
-
+    form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
     finir de styliser le formulaire register
                         completement le formulaire login
     validation registerform

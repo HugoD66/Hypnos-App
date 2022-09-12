@@ -2,8 +2,9 @@
 
 namespace App\Controller\Form;
 
-use App\Entity\Hotel;
-use App\Form\HotelType;
+use App\Entity\Suite;
+use App\Form\ManagerType;
+use App\Form\SuiteType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -12,21 +13,22 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\String\Slugger\SluggerInterface;
 
-class HotelGestionController extends AbstractController
+class SuiteGestionController extends AbstractController
 {
-    #[Route('/add-hotel', name: 'app_hotel_create')]
+    #[Route('/add-suite', name: 'app_suite_create')]
     public function index(Request $request,
                           EntityManagerInterface $entityManager,
                           SluggerInterface $slugger): Response
     {
-        $manager = $this->getUser();
-        $hotel = new Hotel();
+        $user = $this->getUser();
+        $suite = new Suite();
 
-        $form = $this->createForm(HotelType::class, $hotel);
+        $form = $this->createForm(SuiteType::class, $suite);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-    //Picture
-            $picture = $form->get('image')->getData();
+
+            //Picture
+            $picture = $form->get('picture')->getData();
             if ($picture) {
                 $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFilename = $slugger->slug($originalFilename);
@@ -38,18 +40,19 @@ class HotelGestionController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
-                $hotel->setImage($newFilename);
-                $hotel->setGerantAdmin($manager);
-                $hotel = $form->getData();
+                $suite->setPicture($newFilename);
+                $suite->setManager($user);
+
+                $suite = $form->getData();
             }
             //Push
-            $entityManager->persist($hotel);
+            $entityManager->persist($suite);
             $entityManager->flush();
         }
-
-        return $this->render('form/hotel-creation.html.twig', [
-            'title' => 'Hypnos - Creation Hotel',
+        return $this->render('form/suite-creation.html.twig', [
+            'title' => 'Hypnos - Creation Suite',
             'form' => $form->createView(),
-            ]);
+
+        ]);
     }
 }

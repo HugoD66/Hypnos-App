@@ -206,6 +206,24 @@ footer {
   margin-bottom: 15%;
   display: flex;
   width: 90%;
+  background-image: url("../../public/picture/banque-image/picture-form/suite-pick.jpg");
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 60%;
+  .customFormBars {
+    margin-left: 18%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+  //Forms2 (Suites)
+.customFormpic2 {
+  margin-top: 15%;
+  margin-bottom: 15%;
+  display: flex;
+  width: 90%;
   background-image: url("../../public/picture/banque-image/picture-form/register-pick.jpg");
   background-repeat: no-repeat;
   background-position: right;
@@ -218,7 +236,6 @@ footer {
     align-items: center;
   }
 }
-
 
 
   //Boutons
