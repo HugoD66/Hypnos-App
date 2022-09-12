@@ -1,27 +1,22 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-
-<br>
-<div class="titleCustom">
-    <div class="tittleList">
-        <h2 class="title">Création Suite</h2>
-        <h3 class="littleTitle">Manager</h3>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Création Suite</h2>
+            <h3 class="littleTitle">Manager</h3>
+        </div>
+        <div class="barreHorizontale"></div>
     </div>
-    <div class="barreHorizontale"></div>
-</div>
-<div class="customFormPic">
-    <div class="customFormBars">
+    <div class="customFormpic2">
         {{ form_start(form) }}
         {{ form_errors(form) }}
-            {{ form_row(form.name) }}
-            {{ form_row(form.price) }}
-            {{ form_row(form.description) }}
-            {{ form_row(form.picture) }}
-            {{ form_row(form.hotel) }}
-            {{ form_row(form.pictureList) }}
-       <br>     <br><br>
-        {{ form_row(form.submit) }}
+            {{ form_row(form.name, { 'label' : 'Nom de la suite: '}) }}
+            {{ form_row(form.price, { 'label' : 'Prix: '}) }}
+            {{ form_row(form.description, { 'label' : 'Descritpion/Atouts: '}) }}
+            {{ form_row(form.picture, { 'label' : 'Image principale: '}) }}
+            {{ form_row(form.hotel, { 'label' : 'Hotel possédant la suite: '}) }}
+            {{ form_row(form.pictureList, { 'label' : 'Galerie d\'images: '}) }}
+        {{ form_row(form.submit, { 'label' : 'Envoyer '}) }}
     </div>
-</div>
 {% endblock %}

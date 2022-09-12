@@ -15,7 +15,6 @@
         <div class="barreHorizontale"></div>
     </div>
     <div class="customFormPic">
-        <div class="customFormBars">
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm.email) }}
                 {{ form_row(registrationForm.firstName) }}
@@ -23,9 +22,7 @@
                 {{ form_row(registrationForm.plainPassword, {
                     label: 'Password'
                 }) }}
-                {{ form_row(registrationForm.agreeTerms) }}
-                <button type="submit" class="btn">Register</button>
+                {{ form_row(registrationForm.agreeTerms, { 'label' : 'Conditions générales '}) }}
             {{ form_end(registrationForm) }}
-        </div>
     </div>
 {% endblock %}

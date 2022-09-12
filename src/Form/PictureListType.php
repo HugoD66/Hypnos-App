@@ -33,10 +33,14 @@ class PictureListType extends AbstractType
             ->add('suite', EntityType::class, [
                 'class' => Suite::class
             ])
-            ->add('submit', SubmitType::class)
+            ->add('suite')
+            ->add('submit', SubmitType::class, [
+                'attr' => array(
+                    'class' => 'buttonSendForm'
+                )
+            ])
         ;
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

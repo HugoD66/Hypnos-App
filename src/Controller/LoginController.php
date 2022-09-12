@@ -19,6 +19,7 @@ class LoginController extends AbstractController
             'title' => 'Hypnos - Connexion',
             'last_username' => $lastUsername,
             'error'         => $error,
+
         ]);
     }
     #[Route('/logout', name: 'app_logout', methods: ['GET'])]

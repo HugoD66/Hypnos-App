@@ -10,15 +10,13 @@
         <div class="barreHorizontale"></div>
     </div>
     <div class="customFormPic">
-        <div class="customFormBars">
             {{ form_start(form) }}
             {{ form_errors(form) }}
                 {{ form_row(form.pic_one) }}
                 {{ form_row(form.pic_two) }}
                 {{ form_row(form.pic_three) }}
-
+                {{ form_row(form.suite) }}
             {{ form_row(form.submit) }}
             {{ form_end(form) }}
-        </div>
     </div>
 {% endblock %}

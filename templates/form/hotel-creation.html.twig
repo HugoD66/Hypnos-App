@@ -1,7 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-    <br>
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Création d'Hotel</h2>
@@ -10,16 +9,14 @@
         <div class="barreHorizontale"></div>
     </div>
     <div class="customFormPic">
-        <div class="customFormBars">
             {{ form_start(form) }}
             {{ form_errors(form) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.city) }}
-                {{ form_row(form.adress) }}
-                {{ form_row(form.description) }}
-                {{ form_row(form.image) }}
-            {{ form_row(form.submit) }}
+                {{ form_row(form.name, { 'label' : 'Nom: '}) }}
+                {{ form_row(form.city, { 'label' : 'Ville: '}) }}
+                {{ form_row(form.adress, { 'label' : 'Adresse: '}) }}
+                {{ form_row(form.description, { 'label' : 'Description de l\'hotel:'}) }}
+                {{ form_row(form.image, { 'label' : 'Image: '}) }}
+            {{ form_row(form.submit, { 'label' : 'Créer'}) }}
             {{ form_end(form) }}
-        </div>
     </div>
 {% endblock %}

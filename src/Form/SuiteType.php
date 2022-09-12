@@ -11,6 +11,8 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,9 +21,13 @@ class SuiteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('name')
+            ->add('name', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Dupont'
+                ]
+            ])
             ->add('picture', FileType::class)
-            ->add('description')
+            ->add('description', TextAreaType::class)
             ->add('price', IntegerType::class)
             ->add('hotel', EntityType::class, [
                 'class' => Hotel::class,
@@ -33,9 +39,11 @@ class SuiteType extends AbstractType
                 'allow_delete' => true,
 
             ])
-            ->add('submit', SubmitType::class)
-
-        ;
+            ->add('submit', SubmitType::class, [
+                'attr' => array(
+                    'class' => 'buttonSendForm'
+                )
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

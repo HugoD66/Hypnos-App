@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Expliquez votre besoin</h2>
+            <h3 class="littleTitle">Contact</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="customContactUsPic">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+                {{ form_row(form.email, { 'label' : 'Adresse mail: '}) }}
+                {{ form_row(form.first_name, { 'label' : 'Nom de famille: '}) }}
+                {{ form_row(form.last_name, { 'label' : 'Prénom: '}) }}
+                {{ form_row(form.reason, { 'label' : 'Raison de l\'envoi: '}) }}
+                {{ form_row(form.content, { 'label' : 'Description: '}) }}
+            {{ form_row(form.submit, { 'label' : 'Envoyer '}) }}
+            {{ form_end(form) }}
+    </div>
+
+{% endblock %}
