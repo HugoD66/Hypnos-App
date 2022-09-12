@@ -20,12 +20,8 @@
             {{ form_row(form.adress) }}
             {{ form_row(form.description) }}
             {{ form_row(form.image) }}
-            <button type="submit" class="btn">Register</button>
-            <button type="button" class="btn">
-                <a href="{{ path('app_login') }}">
-                    Déjàs inscrit ?
-                </a>
-            </button>
+            {{ form_row(form.submit) }}
+
             {{ form_end(form) }}
         </div>
     </div>

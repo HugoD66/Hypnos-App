@@ -5,6 +5,8 @@ namespace App\Entity;
 use App\Repository\HotelRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 #[ORM\Entity(repositoryClass: HotelRepository::class)]
 class Hotel
@@ -27,10 +29,16 @@ class Hotel
     private ?string $description = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Image(
+        minWidth: 100,
+        maxWidth: 2600,
+        maxHeight: 2600,
+        minHeight: 100,
+    )]
     private ?string $image = null;
 
     #[ORM\ManyToOne(inversedBy: 'hotel')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?User $gerant_admin = null;
 
     public function getId(): ?int
