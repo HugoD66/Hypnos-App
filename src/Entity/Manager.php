@@ -38,6 +38,9 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToOne(inversedBy: 'manager', cascade: ['persist', 'remove'])]
     private ?Suite $suite = null;
 
+    #[ORM\OneToOne(mappedBy: 'manager', cascade: ['persist', 'remove'])]
+    private ?Hotel $hotel = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -140,6 +143,28 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
     public function setSuite(?Suite $suite): self
     {
         $this->suite = $suite;
+
+        return $this;
+    }
+
+    public function getHotel(): ?Hotel
+    {
+        return $this->hotel;
+    }
+
+    public function setHotel(?Hotel $hotel): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($hotel === null && $this->hotel !== null) {
+            $this->hotel->setManager(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($hotel !== null && $hotel->getManager() !== $this) {
+            $hotel->setManager($this);
+        }
+
+        $this->hotel = $hotel;
 
         return $this;
     }

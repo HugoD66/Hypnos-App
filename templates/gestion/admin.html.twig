@@ -1,11 +1,27 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-    <h1>Gestion ADMIN</h1>
 
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Page de gestion</h2>
+            <h3 class="littleTitle">Administrateur</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
     <button type="button"><a href="{{ path('app_hotel_create') }}">Creation d'Hotel</a></button>
     <button type="button"><a href="{{ path('app_manager_create') }}">Creation Manager</a></button>
-
+    <button type="button">Link Hotel/Manager</button>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Hotel/Manager</h2>
+            <h3 class="littleTitle">Organisation</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    {% for hotelLists in hotelList %}
+        {{ hotelLists.name }}
+        {# a regler {{ hotelLists.manager.email }} #}
+        <br>
+    {% endfor %}
 {% endblock %}

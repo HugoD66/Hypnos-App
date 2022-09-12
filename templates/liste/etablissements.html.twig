@@ -4,4 +4,12 @@
 
 {% block body %}
     <h1>Liste des établissements</h1>
+
+    {% for hotels in hotel %}
+        {{ hotels.name }}
+        {{ hotels.city }}
+        {{ hotels.adress }}
+        {{ hotels.description }}
+        <br>
+    {% endfor %}
 {% endblock %}

@@ -32,6 +32,9 @@ class Suite
     #[ORM\ManyToOne(inversedBy: 'suites')]
     private ?Hotel $hotel = null;
 
+    #[ORM\OneToOne(mappedBy: 'suite', cascade: ['persist', 'remove'])]
+    private ?PictureList $pictureList = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -115,6 +118,28 @@ class Suite
     public function setHotel(?Hotel $hotel): self
     {
         $this->hotel = $hotel;
+
+        return $this;
+    }
+
+    public function getPictureList(): ?PictureList
+    {
+        return $this->pictureList;
+    }
+
+    public function setPictureList(?PictureList $pictureList): self
+    {
+        // unset the owning side of the relation if necessary
+        if ($pictureList === null && $this->pictureList !== null) {
+            $this->pictureList->setSuite(null);
+        }
+
+        // set the owning side of the relation if necessary
+        if ($pictureList !== null && $pictureList->getSuite() !== $this) {
+            $pictureList->setSuite($this);
+        }
+
+        $this->pictureList = $pictureList;
 
         return $this;
     }

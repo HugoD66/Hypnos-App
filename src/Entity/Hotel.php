@@ -46,6 +46,9 @@ class Hotel
     #[ORM\OneToMany(mappedBy: 'hotel', targetEntity: Suite::class)]
     private Collection $suites;
 
+    #[ORM\OneToOne(inversedBy: 'hotel', cascade: ['persist', 'remove'])]
+    private ?Manager $manager = null;
+
     public function __construct()
     {
         $this->suites = new ArrayCollection();
@@ -160,5 +163,17 @@ class Hotel
     public function __toString()
     {
         return $this->name;
+    }
+
+    public function getManager(): ?Manager
+    {
+        return $this->manager;
+    }
+
+    public function setManager(?Manager $manager): self
+    {
+        $this->manager = $manager;
+
+        return $this;
     }
 }

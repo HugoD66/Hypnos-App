@@ -2,6 +2,7 @@
 
 namespace App\Controller\Form;
 
+use App\Entity\PictureList;
 use App\Entity\Suite;
 use App\Form\ManagerType;
 use App\Form\SuiteType;
@@ -27,7 +28,7 @@ class SuiteGestionController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
-            //Picture
+    //Picture
             $picture = $form->get('picture')->getData();
             if ($picture) {
                 $originalFilename = pathinfo($picture->getClientOriginalName(), PATHINFO_FILENAME);
@@ -45,7 +46,7 @@ class SuiteGestionController extends AbstractController
 
                 $suite = $form->getData();
             }
-            //Push
+    //Push
             $entityManager->persist($suite);
             $entityManager->flush();
         }

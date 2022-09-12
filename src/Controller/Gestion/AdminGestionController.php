@@ -2,6 +2,7 @@
 
 namespace App\Controller\Gestion;
 
+use App\Entity\Hotel;
 use App\Entity\User;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,9 +17,12 @@ class AdminGestionController extends AbstractController
     {
         $admin = $doctrine->getRepository(User::class)->find($id);
 
+
+        $hotelList = $doctrine->getRepository(Hotel::class)->findAll();
         return $this->render('gestion/admin.html.twig', [
             'title' => 'Hypnos - Gestion Administrateur',
             'admin' => $admin,
+            'hotelList' => $hotelList,
         ]);
     }
 }

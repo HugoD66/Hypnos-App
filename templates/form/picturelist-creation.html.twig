@@ -4,8 +4,8 @@
     <br>
     <div class="titleCustom">
         <div class="tittleList">
-            <h2 class="title">Création d'Hotel</h2>
-            <h3 class="littleTitle">Admin</h3>
+            <h2 class="title">Ajout D'image</h2>
+            <h3 class="littleTitle">Suite</h3>
         </div>
         <div class="barreHorizontale"></div>
     </div>
@@ -13,11 +13,10 @@
         <div class="customFormBars">
             {{ form_start(form) }}
             {{ form_errors(form) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.city) }}
-                {{ form_row(form.adress) }}
-                {{ form_row(form.description) }}
-                {{ form_row(form.image) }}
+                {{ form_row(form.pic_one) }}
+                {{ form_row(form.pic_two) }}
+                {{ form_row(form.pic_three) }}
+
             {{ form_row(form.submit) }}
             {{ form_end(form) }}
         </div>
