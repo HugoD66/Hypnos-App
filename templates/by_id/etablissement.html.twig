@@ -1,7 +1,40 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-
 {% block body %}
-    <h1>Titre ETABLISSEMENT ID </h1>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">{{ hotel.name }}</h2>
+            <h3 class="littleTitle">Hotel</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+<div class="hotelId">
+    <div class="customHotelId">
+        <img class="" src="{{ asset('picture/recipe-picture/' ~ hotel.getImage()) }}" alt="Image de l'hotel">
+    </div>
+        <h3>{{ hotel.name }}</h3>
+    <div class="customHotelIdExplain">
+        <div class="customHotelIdExplain1">
+            <h4>Description: </h4>
+            <p>{{ hotel.description }}</p>
+            <h4>Ville:</h4>
+            <p>{{ hotel.city }}</p>
+            <h4>Adresse:</h4>
+            <p>{{ hotel.adress }}</p>
+            <h4>Manager:</h4>
+        </div>
+        <div class="customHotelIdExplain2">
+            <h4>Images: </h4>
+            <!-- METTRE GALERIE PICTURE LIST ? -->
+        </div>
+    </div>
+</div>
+
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Ses suites</h2>
+            <h3 class="littleTitle">Hotel</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
 {% endblock %}

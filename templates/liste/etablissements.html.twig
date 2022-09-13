@@ -1,15 +1,50 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-
 {% block body %}
-    <h1>Liste des établissements</h1>
-
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Nos hotels</h2>
+            <h3 class="littleTitle">Présentation</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
     {% for hotels in hotel %}
-        {{ hotels.name }}
-        {{ hotels.city }}
-        {{ hotels.adress }}
-        {{ hotels.description }}
-        <br>
+<div class="hotel">
+        <h4> •{{ hotels.name }}</h4>
+        <div class="customHotel">
+            <div class="customHotemPictureButton">
+                <img class="" src="{{ asset('picture/recipe-picture/' ~ hotels.getImage()) }}" alt="Image de l'hotel">
+                <div class="customHotelButtons">
+                    <button type="button" class="buttonNav"><a href="{{ path('app_etablissement', { 'id' : hotels.id}) }}" class="card-link">Accès Hotel</a></button>
+                    <button type="button" class="buttonNav"><a href="#" class="card-link">Les Suites</a></button>
+                </div>
+            </div>
+            <div class="customHotelDescription">
+                <h5><b>Description</b>:</h5>
+                <p class="">{{ hotels.description |u.truncate(200) }}...</p>
+                <div class="customHotelListe">
+                    <h5><b>Adresse</b> :</h5>
+                    <p>
+                        {{ hotels.adress }}
+                    </p>
+                    <h5><b>Ville</b> :</h5>
+                    <p>
+                        {{ hotels.city }}
+                    </p>
+                    <h5><b>Nombre de suites</b> :</h5>
+                    <p>
+                        EXEMPLE
+                    </p>
+                </div>
+            </div>
+        </div>
+    <br>
+</div>
+        <div class="barreHorizontaleTwo"></div>
+
     {% endfor %}
 {% endblock %}
+
+
+
+

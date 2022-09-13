@@ -16,6 +16,7 @@ class ContactUsController extends AbstractController
     public function index(Request $request,
                           EntityManagerInterface $entityManager,): Response
     {
+
         $contactus = new ContactUs();
 
         $form = $this->createForm(ContactUsType::class, $contactus);
@@ -23,9 +24,11 @@ class ContactUsController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
 
     //Push
-            $suite = $form->getData();
-            $entityManager->persist($suite);
+            $contactus = $form->getData();
+            $entityManager->persist($contactus);
             $entityManager->flush();
+
+        return $this->redirectToRoute('app_success_contact');
         }
         return $this->render('form/contact_us.html.twig', [
             'title' => 'Hypnos - Nous Contacter',

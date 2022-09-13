@@ -1,7 +1,23 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-
 {% block body %}
-    <h1>Succés Enregistrement</h1>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Confirmation envoi</h2>
+            <h3 class="littleTitle">Formulaire</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+<!--Template successTwo -->
+    <div class="successTwo">
+        <div class="explainSuccess">
+            <h2>Vous êtes enregistré.</h2>
+            <p>Vous pouvez dorénavant réserver une ou plusieurs dates dans les suites qui vous sont proposées.</p>
+        </div>
+        <div class="buttonSuccess">
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_liste_suites') }}">Liste des suites</a></button>
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_home') }}">Retour Acceuil</a></button>
+            </button>
+        </div>
+    </div>
 {% endblock %}

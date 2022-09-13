@@ -12,6 +12,8 @@
     <button type="button"><a href="{{ path('app_hotel_create') }}">Creation d'Hotel</a></button>
     <button type="button"><a href="{{ path('app_manager_create') }}">Creation Manager</a></button>
     <button type="button">Link Hotel/Manager</button>
+
+<!--Liste Hotel, a faire liaison avec Manager -->
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Hotel/Manager</h2>
@@ -24,4 +26,56 @@
         {# a regler {{ hotelLists.manager.email }} #}
         <br>
     {% endfor %}
+
+
+<!--Liste ContactUs -->
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Formulaires reçus</h2>
+            <h3 class="littleTitle">Contact</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    {% if contact == null %}
+        <div class="successTwo m-0 align-items-center">
+            <div class="explainSuccess">
+                <h2>Aucune demande de contact.</h2>
+                <p>Vous n'avez aucun formulaire recu pour l'instant. <br></p>
+            </div>
+            <div class="buttonSuccess">
+                <button type="button" class="buttonAcceuil"><a href="{{ path('app_home') }}">Retour Acceuil</a></button>
+                </button>
+            </div>
+        </div>
+    {% else %}
+<div class="backTable">
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Email</th>
+            <th scope="col">Nom</th>
+            <th scope="col">Prénom</th>
+            <th scope="col">Raison</th>
+            <th scope="col">Description</th>
+        </tr>
+        </thead>
+        <tbody>
+            {% for c in contact %}
+                <tr>
+                    <th scope="row">{{ c.email }}</th>
+                    <td>{{ c.first_name }}</td>
+                    <td>{{ c.last_name }}</td>
+                    <td>{{ c.reason }}</td>
+                    <td>{{ c.content }}</td>
+                    <td>
+                        <a href="{{ path('delete_form', {'id': c.id}) }}" onclick="return confirm('Etes vous sûre de supprimer ce manager?  ')">
+                            Supprimer
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+    {% endif %}
 {% endblock %}

@@ -38,7 +38,13 @@ class ContactUsRepository extends ServiceEntityRepository
             $this->getEntityManager()->flush();
         }
     }
-
+    public function getContactUsList()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id, u.first_name, u.last_name, u.email, u.reason, u.content')
+            ->getQuery()
+            ->getResult();
+    }
 //    /**
 //     * @return ContactUs[] Returns an array of ContactUs objects
 //     */

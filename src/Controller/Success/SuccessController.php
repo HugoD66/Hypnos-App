@@ -15,8 +15,6 @@ class SuccessController extends AbstractController
             'title' => 'Hypnos - Succés Envois Formulaire',
         ]);
     }
-
-    //A voir apres init User
     #[Route('/success-register', name: 'app_success_register')]
     public function successEnregistrement(): Response
     {
@@ -24,15 +22,15 @@ class SuccessController extends AbstractController
             'title' => 'Hypnos - Succés Enregistrement',
         ]);
     }
-
     #[Route('/success-reservation', name: 'app_success_reservation')]
     public function successReservation(): Response
     {
+        $user = $this->getUser();
         return $this->render('success/success_reservation.html.twig', [
             'title' => 'Succés Reservation',
+            'user' => $user,
         ]);
     }
-
     #[Route('/success-change-password', name: 'app_success_change_password')]
     public function successChangePassword(): Response
     {

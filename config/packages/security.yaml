@@ -41,6 +41,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/add-picture-list, roles: ROLE_MANAGER}
+        - { path: ^/success-change-password, roles: ROLE_MANAGER}
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
@@ -49,7 +50,7 @@ when@test:
         password_hashers:
             # By default, password hashers are resource intensive and take time. This is
             # important to generate secure password hashes. In tests however, secure hashes
-            # are not important, waste resources and increase test times. The following
+            # are not important, waste resources and increase back times. The following
             # reduces the work factor to the lowest possible values.
             Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface:
                 algorithm: auto

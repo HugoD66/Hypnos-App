@@ -1,7 +1,22 @@
 {% extends 'layout.html.twig' %}
-{% block title %}}{{ title }}{% endblock %}
-
-
+{% block title %}{{ title }}{% endblock %}
 {% block body %}
-    <h1>Succés Reservation</h1>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Confirmation Enregistrement</h2>
+            <h3 class="littleTitle">Suite</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <!--Template successTwo -->
+    <div class="successTwo">
+        <div class="explainSuccess">
+            <h2>Confirmation de réservation.</h2>
+            <p>Bravo {{ app.user.lastName }} {{ app.user.firstName }}, vous avez réservé. Vous pouvez aller vérifier votre enregistrement sur votre compte.</p>
+        </div>
+        <div class="buttonSuccess">
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_home') }}">Retour Acceuil</a></button>
+            </button>
+        </div>
+    </div>
 {% endblock %}

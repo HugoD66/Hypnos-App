@@ -1,5 +1,24 @@
 {% extends 'layout.html.twig' %}
 {% block title %}}{{ title }}{% endblock %}
 {% block body %}
-    <h1>Succés Envois. form</h1>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Confirmation envoi</h2>
+            <h3 class="littleTitle">Formulaire</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+<!--Template successOne -->
+    <div class="successOne">
+    <div class="explainSuccess">
+        <h2>Vous avez envoyé votre demande.</h2>
+        <p>Une réponse vous sera retournée le plus rapidement possible, par mail. Vous pouvez en attendant parcourir la liste des hotels qui vous sont
+        mis à disposition.</p>
+    </div>
+    <div class="buttonSuccess">
+        <button type="button" class="buttonAcceuil"><a href="{{ path('app_liste_etablissement') }}">Liste des hotels</a></button>
+        <button type="button" class="buttonAcceuil"><a href="{{ path('app_home') }}">Retour Acceuil</a></button>
+        </button>
+    </div>
+    </div>
 {% endblock %}
