@@ -1,6 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
+    <button type="button" class="buttonAcceuil" style=" float: right;
+                                                                margin-top: 2%;
+                                                                margin-bottom: 10%;
+                                                                margin-right: 14%;">
+        <a href="{{ path('app_liste_etablissement') }}">
+            Tous nos hotels !
+        </a>
+    </button>
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">{{ hotel.name }}</h2>
@@ -27,7 +35,6 @@
                     <p>{{ hotel.manager }}</p>
                 </div>
                 <div class="customHotelIdExplain2">
-                    <h4 style="margin-left: 30%;">Images des suites: </h4>
                 {% for suites in suite %}
                     {% if hotel.id == suites.hotel.id %}
                         <img class="" src="{{ asset('picture/recipe-picture/' ~ suites.picture) }}" alt="Image de l'hotel">
@@ -77,7 +84,7 @@
     </div>
     <div class="customHotelButton">
             <button type="button" class="buttonAcceuil"><a href="#">Reserver</a></button>
-            <button type="button" class="buttonAcceuil"><a href="#">En savoir plus</a></button>
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_suite', { 'id' : suites.id}) }}">En savoir plus</a></button>
     </div>
         <div class="barreHorizontaleTwo"></div>
 

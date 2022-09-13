@@ -1,20 +1,11 @@
 Faire:
     faire boutons de §etablissement/id(hotel) => RESERVER / EN SAVOIR PLUS
-    faire Suite.ID template
 
     faire et styliser les pages de gestion
 
+    faire responsive list hotel (et tout des rooms) (    regler la police plus grosse)
 
-    Creer bibliotheque imagerie            7 HOTEL, 7ROOM+3PAR ROOM === 7HOTEL + 21ROOM ( sa race )
-
-    faire responsive list hotel (et tout des rooms)
-
-    Dans creation Suite, mettre photo + description de quel hotel
     form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
-
-    finir add-suite form ( juste enlever SUITE )
-    regler la police plus grosse
-
 
 
     Wireframes
@@ -23,20 +14,16 @@ Faire:
                bottom: 0; ?
 
     Pages manquantes :
-        ADMIN: Gerant creation;Hotel Creation;      Gerant update;Hotel Update;
+        ADMIN:    Gerant update;Hotel Update; et delete!
 
 
-    liste etablissements, liste photo sur le côté des suites
 
     Finir Zoning clientGestion
-    A revoir intégrallement ?
 
 
 A VOIR ??????
 
     Modal pour annulation reservation ?
-    ActiveUser apres  Enregistrement compte ??   (vérification email <==== non demandé);
-    Make success controlleurs !!!!   template  deja  initialisé?
 
 
 
@@ -47,10 +34,13 @@ protection pour hotel ( seulement admin):
 
 
 
-FORMS =>     input {
-               background: $blueNav;
-             }
 
+        enlevé à picture list
+                    ->add('suite', EntityType::class, [
+                        'class' => Suite::class,
+                        'required' => false,
+
+                    ])
 
 
 
@@ -80,9 +70,10 @@ BUNDLES :
 
 
 
-        enlevé à picture list
-                    ->add('suite', EntityType::class, [
-                        'class' => Suite::class,
-                        'required' => false,
 
-                    ])
+
+
+
+
+
+

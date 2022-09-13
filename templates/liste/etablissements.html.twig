@@ -1,6 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
+    <button type="button" class="buttonAcceuil" style=" float: right;
+                                                                margin-top: 2%;
+                                                                margin-bottom: 10%;
+                                                                margin-right: 14%;">
+        <a href="{{ path('app_liste_suites') }}">
+            Toutes nos suites !
+        </a>
+    </button>
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Nos hotels</h2>
@@ -16,7 +24,6 @@
                 <img class="" src="{{ asset('picture/recipe-picture/' ~ hotels.getImage()) }}" alt="Image de l'hotel">
                 <div class="customHotelButtons">
                     <button type="button" class="buttonNav"><a href="{{ path('app_etablissement', { 'id' : hotels.id}) }}" class="card-link">Accès Hotel</a></button>
-                    <button type="button" class="buttonNav"><a href="#" class="card-link">Les Suites</a></button>
                 </div>
             </div>
             <div class="customHotelDescription">

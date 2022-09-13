@@ -2,18 +2,26 @@
 
 namespace App\Controller\ById;
 
+use App\Entity\PictureList;
+use App\Entity\Suite;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class SuiteController extends AbstractController
 {
-    //Mettre /{id} i touti
-    #[Route('/suite', name: 'app_suite')]
-    public function index(): Response
+    #[Route('/suite/{id}', name: 'app_suite')]
+    public function index(ManagerRegistry $doctrine, int $id): Response
     {
+        $suite = $doctrine->getRepository(Suite::class)->find($id);
+        $pictureList = $doctrine->getRepository(PictureList::class)->findAll();
+
         return $this->render('by_id/suite.html.twig', [
             'title' => 'TITRE SUITE ID  Hypnos - ',
+            'suite' => $suite,
+            'pictureList' => $pictureList,
+
         ]);
     }
 }

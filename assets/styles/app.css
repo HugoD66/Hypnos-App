@@ -23773,9 +23773,94 @@ footer .returnTop img {
   height: 35%;
   max-width: 35%;
   max-height: 35%;
+  margin: 1%;
 }
 .hotelId .customHotelIdExplain h4, .hotelId .customHotelIdExplain .h4 {
   font-size: 1.4em;
+}
+
+.roomId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto auto 15%;
+  width: 90%;
+}
+.roomId img {
+  max-width: 90%;
+  max-height: 85%;
+  width: 90%;
+  height: 85%;
+  margin: auto;
+}
+.roomId .suiteIdGalerie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.roomId .suiteIdGalerie img {
+  max-width: 32%;
+  max-height: 30%;
+  width: 32%;
+  height: 30%;
+}
+.roomId .suiteIdDesc .suiteIdDescListButton {
+  display: flex;
+  margin: auto;
+  justify-content: space-around;
+  align-items: center;
+}
+.roomId .suiteIdDesc .suiteIdDescListButton .suiteIdDescList {
+  margin: 4%;
+}
+.roomId .suiteIdDesc .suiteIdDescListButton .suiteIdDescButton {
+  margin: 6%;
+}
+.roomId .suiteIdDesc .suiteIdDescListButton .suiteIdDescButton button {
+  margin: 20%;
+}
+.roomId h4, .roomId .h4 {
+  width: 100%;
+  background-color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.customListe {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 90%;
+  margin: auto auto 4%;
+}
+.customListe .customListeSuitePicButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+  margin: auto;
+}
+.customListe .customListeSuitePicButton img {
+  width: 80%;
+  height: 60%;
+  max-width: 80%;
+  max-height: 60%;
+}
+.customListe .customListeSuitePicButton button {
+  margin-top: 4%;
+  font-size: 1.2em;
+  color: #625f48;
+}
+.customListe .customListeSuiteDesc {
+  width: 45%;
+}
+.customListe h4, .customListe .h4 {
+  font-size: 2.6em;
+  margin-bottom: 3%;
+  text-align: center;
 }
 
 .customFormPic {

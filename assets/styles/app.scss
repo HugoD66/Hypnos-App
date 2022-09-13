@@ -2,11 +2,11 @@
 @import '_design';
 
 
-// *
+
 body {
   margin: auto;
   position: relative;
-}
+}                  // * //
 nav {
   background-image: url("../../public/picture/banque-image/nav-footer/BackNav-Blue3.png");
   background-repeat: no-repeat;
@@ -82,10 +82,6 @@ footer {
     }
   }
 }
-
-
-//Page d'accueil
-
 .accueil {
   display: flex;
   justify-content: start;
@@ -120,7 +116,7 @@ footer {
       font-size: 30px;
     }
   }
-}
+}               //Page d'accueil//
 .presentation {
   margin: 10%;
   display: flex;
@@ -171,9 +167,6 @@ footer {
     font-size: 1.5em;
   }
 }
-
-
-//Hotel ID
 .hotelId {
   .customHotelId {
     display: flex;
@@ -215,6 +208,7 @@ footer {
         height:35%;
         max-width: 35%;
         max-height: 35%;
+        margin: 1%;
       }
     }
     h4 {
@@ -224,10 +218,95 @@ footer {
   }
 
 
-}
+}                //Hotel ID//
+.roomId {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: auto auto 15%;
+  width: 90%;
+  img {
+    max-width: 90%;
+    max-height: 85%;
+    width: 90%;
+    height: 85%;
+    margin: auto;
+  }
+  .suiteIdGalerie {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      max-width: 32%;
+      max-height: 30%;
+      width: 32%;
+      height: 30%;
+    }
+  }
 
-//Forms
+  .suiteIdDesc {
+    .suiteIdDescListButton {
+      display: flex;
+      margin: auto;
+      justify-content: space-around;
+      align-items: center;
+      .suiteIdDescList {
+        margin: 4%;
+      }
+      .suiteIdDescButton {
+        margin: 6%;
+        button {
+          margin: 20%;
+        }
+      }
+    }
 
+
+  }
+  h4 {
+    width: 100%;
+    background-color: white;
+    position: relative;
+    z-index: +1;
+  }
+}                 //Room ID//
+.customListe {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 90%;
+  margin: auto auto 4%;
+
+  .customListeSuitePicButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 45%;
+    margin: auto;
+    img {
+      width: 80%;
+      height: 60%;
+      max-width: 80%;
+      max-height: 60%;
+    }
+    button {
+      margin-top: 4%;
+      font-size: 1.2em;
+      color: $marronDark;
+    }
+  }
+  .customListeSuiteDesc {
+    width: 45%;
+  }
+  h4 {
+    font-size: 2.6em;
+    margin-bottom: 3%;
+    text-align: center;
+  }
+}            //ListeRoom//
 .customFormPic {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -235,6 +314,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center right 20%;
   background-size: 60%;
+
   label {
     font-family: $subTitle;
     font-size: 22px;
@@ -245,7 +325,7 @@ footer {
     margin: auto auto auto 10%;
     width: 60%;
   }
-}
+}          //Forms//
 .customFormpic2 {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -353,8 +433,6 @@ footer {
     background-color: white;
   }
 }
-
-//Service
 .successOne {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -383,7 +461,7 @@ footer {
       margin-top: 6%;
     }
   }
-}
+}              //Service-Success//
 .successTwo {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -413,10 +491,6 @@ footer {
     }
   }
 }
-//Composants
-
-//Titre
-
 .titleCustom {
   .tittleList {
     display: flex;
@@ -451,7 +525,7 @@ footer {
     float: top;
     margin: 0px auto 5%;
   }
-}
+}             //Titre//
 h4 {
   /*background-image: url("../../public/picture/banque-image/back/Back-h4.png");
   background-repeat: no-repeat;
@@ -471,10 +545,6 @@ h5 {
   font-family: $title;
   font-size: 1.5em;
 }
-
-//Bouton
-
-  //Bouton nav
 .buttonNav {
   display: inline-block;
   padding: .75rem 1.25rem;
@@ -521,8 +591,7 @@ h5 {
     font-weight: bold;
     color: $marronLogo;
   }
-}
-  //Bouton Acceuil
+}               //Bouton nav//
 .buttonAcceuil {
   background-color: transparent;
   border: 1px solid #266DB6;
@@ -573,8 +642,7 @@ h5 {
     font-size: 1.6em;
     font-weight: bold;
   }
-}
-  //Bouton SendForm
+}           //Bouton Acceuil//
 .buttonSendForm {
   background: $marronLight;
   backface-visibility: hidden;
@@ -632,8 +700,7 @@ h5 {
     color: $marronLogo;
     border: none;
   }
-}
-  //Autre Bouton ( a enlever ? )
+}          //Bouton SendForm//
 .buttonOne {
   display: inline-block;
   padding: .75rem 1.25rem;
@@ -680,18 +747,13 @@ h5 {
     text-decoration: none;
     color: #2c3034;
   }
-}
-  //Bouton HOTEL:ID => Suites
+}               //Autre Bouton ( a enlever ? )//
 .customHotelButton {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 7%;
-}
-
-
-//Card
-  //Hotel
+}       //Bouton HOTEL:ID => Suites//
 .card-hotel {
   border: 2px solid $marronLogo;
   width: 80%;
@@ -719,8 +781,7 @@ h5 {
     height:100%;
     display:block;
   }
-}
-  //CustomCard
+}              //Card-Hotel(Acceuil)//
 .hotel {
   .customHotel {
     display: flex;
@@ -750,8 +811,7 @@ h5 {
     margin-top: 4%;
     margin-bottom: 4%;
   }
-}
-  //Custom Suites de l'Hotels(ID)
+}                   //CustomCard//
 .customHotelSuites{
   width: 80%;
   display: flex;
@@ -781,18 +841,14 @@ h5 {
     margin: auto;
     text-align: end;
   }
-}
-
-
-
-  //Background decoration
+}        //Custom Suites de l'Hotels(ID)//
 .backPic {
   background-image: url('../../public/picture/banque-image/nav-footer/test-back.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: -2;
-}
+}                 //Background decoration//
 .backCard {
   background-image: url("../../public/picture/banque-image/back/back-card2.png");
   background-repeat: no-repeat;
@@ -818,8 +874,6 @@ h5 {
     margin-bottom: 5%;
   }
 }
-
-  // Barre Horizontale 2
 .barreHorizontaleTwo {
   position: relative;
   width: 70%;
@@ -827,14 +881,14 @@ h5 {
   height: 2px;
   float: top;
   margin: 0px auto 5%;
-}
+}     // Barre Horizontale 2//
 
-// Media Query (mobileFirst)
+
 @media screen and (min-width: 970px) {
   nav {
     height: 20em;
   }
-}
+}     // Media Query (mobileFirst)//
 @media screen and (min-width: 1280px) {
   nav {
     background-image: url("../../public/picture/banque-image/nav-footer/BackNav-BlueResponsiveDesktop2.png");

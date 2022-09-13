@@ -22,12 +22,9 @@
                 {{ form_row(registrationForm.plainPassword, {
                     label: 'Password'
                 }) }}
-
                 {{ form_row(registrationForm.agreeTerms, { 'label' : 'Conditions générales '}) }}
                 {{ form_row(registrationForm.submit) }}
             <button type="button" class="buttonSendForm"><a href="{{ path('app_login') }}">Déjà Inscrit?</a></button>
-
-
         {{ form_end(registrationForm) }}
     </div>
 {% endblock %}

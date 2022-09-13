@@ -1,7 +1,51 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-
 {% block body %}
-    <h1>Titre SUITE ID </h1>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">{{ suite.name }}</h2>
+            <h3 class="littleTitle">Suite</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+<!-- Suite ID -->
+    <div class="backHotelId">
+    <div class="roomId">
+            <img src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}"  alt="Image principale de la suite">
+            <div class="suiteIdDesc">
+                <h4>{{ suite.hotel }}</h4>
+                <div class="suiteIdDescListButton">
+                    <div class="suiteIdDescList">
+                        <h5>Nom de la suite: </h5>
+                            <p> {{ suite.name }}</p>
+                        <h5>Propriétaire:</h5>
+                            <p>{{ suite.manager }}</p>
+                        <h5>Prix à la nuit :</h5>
+                            <p>{{ suite.price }}</p>
+                        <h5>Description: </h5>
+                            <p>{{ suite.description }}</p>
+                    </div>
+                    <div class="suiteIdDescButton">
+                        <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
+                        <button type="button" class="buttonAcceuil"><a href="#">Réserver</a></button>
+
+                    </div>
+                </div>
+            </div>
+            <div class="suiteIdGalerie">
+                {% for pictureLists in pictureList %}
+                    {% if suite.id == pictureLists.suite.id %}
+                        <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picOne) }}" alt="Galerie image chambre">
+                        <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picTwo) }}" alt="Galerie image chambre">
+                        <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picThree) }}" alt="Galerie image chambre">
+                    {% else %}
+                    {% endif %}
+                {% endfor %}
+            </div>
+
+
+
+
+        </div>
+    </div>
 {% endblock %}
