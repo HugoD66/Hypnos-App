@@ -2,8 +2,10 @@
 
 namespace App\Controller\Form;
 
+use App\Controller\Service\FileUploader;
 use App\Entity\PictureList;
 use App\Entity\Suite;
+use App\Entity\User;
 use App\Form\ManagerType;
 use App\Form\SuiteType;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,8 +25,8 @@ class SuiteGestionController extends AbstractController
     {
         $user = $this->getUser();
         $suite = new Suite();
-
         $form = $this->createForm(SuiteType::class, $suite);
+
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
 
@@ -42,17 +44,23 @@ class SuiteGestionController extends AbstractController
                 } catch (FileException $e) {
                 }
                 $suite->setPicture($newFilename);
-                $suite->setManager($user);
 
+
+
+                $suite->setManager($user);
                 $suite = $form->getData();
             }
     //Push
             $entityManager->persist($suite);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app_success_add_suite');
+
         }
         return $this->render('form/suite-creation.html.twig', [
             'title' => 'Hypnos - Creation Suite',
             'form' => $form->createView(),
+
 
         ]);
     }

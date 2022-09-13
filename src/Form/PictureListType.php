@@ -17,26 +17,24 @@ class PictureListType extends AbstractType
     {
         $builder
             ->add('pic_one', FileType::class, [
-                'mapped' => false,
                 'label' => 'Photo suite 1 : ',
             ])
             ->add('pic_two', FileType::class, [
-                'mapped' => false,
                 'label' => 'Photo suite 2 : ',
 
             ])
             ->add('pic_three', FileType::class, [
-                'mapped' => false,
                 'label' => 'Photo suite 3 : ',
 
             ])
             ->add('suite', EntityType::class, [
-                'class' => Suite::class
+                'class' => Suite::class,
+                'required' => false,
+
             ])
-            ->add('suite')
             ->add('submit', SubmitType::class, [
                 'attr' => array(
-                    'class' => 'buttonSendForm'
+                    'class' => 'buttonSendForm',
                 )
             ])
         ;

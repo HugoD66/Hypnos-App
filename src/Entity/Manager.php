@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use App\Repository\ManagerRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -35,11 +37,16 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $last_name = null;
 
-    #[ORM\OneToOne(inversedBy: 'manager', cascade: ['persist', 'remove'])]
-    private ?Suite $suite = null;
+    #[ORM\OneToMany(mappedBy: 'manager', targetEntity: Suite::class)]
+    private Collection $suite;
 
     #[ORM\OneToOne(mappedBy: 'manager', cascade: ['persist', 'remove'])]
     private ?Hotel $hotel = null;
+
+    public function __construct()
+    {
+        $this->suite = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -57,6 +64,8 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+
 
     /**
      * A visual identifier that represents this user.
@@ -135,18 +144,32 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getSuite(): ?Suite
+    /**
+     * @return Collection<int, Suite>
+     */
+    public function getSuite(): Collection
     {
         return $this->suite;
     }
-
-    public function setSuite(?Suite $suite): self
+    public function addSuite(Suite $suite): self
     {
-        $this->suite = $suite;
+
+        if (!$this->suite->contains($suite)) {
+            $this->suite->add($suite);
+            $suite->setManager($this);
+        }
 
         return $this;
     }
-
+    public function removeSuite(Suite $suite): self
+    {
+        if ($this->suite->removeElement($suite)) {
+            if ($suite->getManager() === $this) {
+                $suite->setManager(null);
+            }
+        }
+        return $this;
+    }
     public function getHotel(): ?Hotel
     {
         return $this->hotel;
@@ -168,4 +191,10 @@ class Manager implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return  $this->getFirstName() .' '. $this->getLastName();
+    }
+
 }

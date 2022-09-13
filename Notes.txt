@@ -1,4 +1,6 @@
 Faire:
+    faire boutons de §etablissement/id(hotel) => RESERVER / EN SAVOIR PLUS
+    faire Suite.ID template
 
     faire et styliser les pages de gestion
 
@@ -10,13 +12,12 @@ Faire:
     Dans creation Suite, mettre photo + description de quel hotel
     form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
 
-    finir add-suite form
+    finir add-suite form ( juste enlever SUITE )
     regler la police plus grosse
 
 
 
     Wireframes
-    regler div responsive des cards liste hotel
 
     footer :   position: absolute;
                bottom: 0; ?
@@ -29,7 +30,6 @@ Faire:
 
     Finir Zoning clientGestion
     A revoir intégrallement ?
-
 
 
 A VOIR ??????
@@ -46,38 +46,10 @@ protection pour hotel ( seulement admin):
 
 
 
-a remettre !!!!
-derrierecarousel
 
-
-
-
-
-
-cardhotel:
-    <div class="responsiveCard">
-        <div class="backCard">
-            <h4>{{ hotels.name }}</h4>
-            <div class="card card-hotel">
-                <img class="card-img-top" src="{{ asset('picture/recipe-picture/' ~ hotels.getImage()) }}" alt="Card image cap">
-                <div class="card-body">
-                    <h5><b>Description</b>:</h5>
-                    <p class="card-text">{{ hotels.description |u.truncate(200) }}...</p>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item"><b>Adresse</b>: {{ hotels.adress }}</li>
-                    <li class="list-group-item"><b>Ville</b>: {{ hotels.city }}</li>
-                </ul>
-                <div class="card-body">
-                    <button type="button" class="buttonNav"><a href="{{ path('app_etablissement', { 'id' : hotels.id}) }}" class="card-link">Accès Hotel</a></button>
-                    <button type="button" class="buttonNav"><a href="#" class="card-link">Les Suites</a></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
+FORMS =>     input {
+               background: $blueNav;
+             }
 
 
 
@@ -102,3 +74,15 @@ BUNDLES :
         Doctrine
         Assert contraint
         Twig Extra
+
+
+
+
+
+
+        enlevé à picture list
+                    ->add('suite', EntityType::class, [
+                        'class' => Suite::class,
+                        'required' => false,
+
+                    ])

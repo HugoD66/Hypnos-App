@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Ajout d'un Manager</h2>
+            <h3 class="littleTitle">Succés</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="successOne">
+        <div class="explainSuccess">
+            <h2>Vous avez ajouté un nouveau Manager.</h2>
+            <p>Le manager pourra, après la création de son hotel, en avoir la disposition. Il pourra rajouter des suites, ainsi que leurs galeries de photo. </p>
+        </div>
+        <div class="buttonSuccess">
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_liste_etablissement') }}">Liste des hotels</a></button>
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_home') }}">Retour Acceuil</a></button>
+        </div>
+    </div>
+{% endblock %}

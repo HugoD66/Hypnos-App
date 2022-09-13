@@ -3,6 +3,8 @@
 namespace App\Form;
 
 use App\Entity\Hotel;
+use App\Entity\Manager;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
@@ -34,6 +36,9 @@ class HotelType extends AbstractType
                 'attr' => [
                     'placeholder' => 'Hotel luxueux, bonne vue, possibilitée de faire un séjour à deux...'
                 ]
+            ])
+            ->add('manager', EntityType::class, [
+                'class' => Manager::class,
             ])
             ->add('image', FileType::class)
             ->add('submit', SubmitType::class, [

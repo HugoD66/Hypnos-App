@@ -3,8 +3,10 @@
 namespace App\Form;
 
 use App\Entity\Hotel;
+use App\Entity\Manager;
 use App\Entity\PictureList;
 use App\Entity\Suite;
+use App\Repository\HotelRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -23,7 +25,7 @@ class SuiteType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Dupont'
+                    'placeholder' => 'Suite du Luxe'
                 ]
             ])
             ->add('picture', FileType::class)
@@ -32,20 +34,12 @@ class SuiteType extends AbstractType
             ->add('hotel', EntityType::class, [
                 'class' => Hotel::class,
             ])
-            ->add('pictureList', CollectionType::class, [
-                'entry_type' => PictureListType::class,
-                'by_reference' => false,
-                'allow_add' => true,
-                'allow_delete' => true,
-
-            ])
             ->add('submit', SubmitType::class, [
                 'attr' => array(
-                    'class' => 'buttonSendForm'
+                    'class' => 'buttonSendForm',
                 )
             ]);
     }
-
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

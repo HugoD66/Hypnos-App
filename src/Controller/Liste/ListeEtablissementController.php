@@ -3,6 +3,7 @@
 namespace App\Controller\Liste;
 
 use App\Entity\Hotel;
+use App\Entity\Suite;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,10 +15,12 @@ class ListeEtablissementController extends AbstractController
     public function index(ManagerRegistry $doctrine): Response
     {
         $hotel = $doctrine->getRepository(Hotel::class)->findAll();
+        $hotelCountSuites = $doctrine->getRepository(Suite::class)->findAll();
 
         return $this->render('liste/etablissements.html.twig', [
             'title' => 'Hypnos - Liste des établissements',
             'hotel' => $hotel,
+            'hotelCount' => $hotelCountSuites,
 
         ]);
     }

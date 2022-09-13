@@ -16,7 +16,8 @@
             {{ form_row(form.description, { 'label' : 'Descritpion/Atouts: '}) }}
             {{ form_row(form.picture, { 'label' : 'Image principale: '}) }}
             {{ form_row(form.hotel, { 'label' : 'Hotel possédant la suite: '}) }}
-            {{ form_row(form.pictureList, { 'label' : 'Galerie d\'images: '}) }}
-        {{ form_row(form.submit, { 'label' : 'Envoyer '}) }}
+        {{ form_row(form.submit, { 'label' : 'Envoyer'}) }}
+        {{ form_row(form._token) }}
     </div>
 {% endblock %}
+

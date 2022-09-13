@@ -23764,9 +23764,18 @@ footer .returnTop img {
 }
 .hotelId .customHotelIdExplain .customHotelIdExplain2 {
   width: 49%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hotelId .customHotelIdExplain .customHotelIdExplain2 img {
+  width: 35%;
+  height: 35%;
+  max-width: 35%;
+  max-height: 35%;
 }
 .hotelId .customHotelIdExplain h4, .hotelId .customHotelIdExplain .h4 {
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .customFormPic {
@@ -23791,7 +23800,7 @@ footer .returnTop img {
 .customFormpic2 {
   margin-top: 15%;
   margin-bottom: 15%;
-  background-image: url("../../public/picture/banque-image/picture-form/suite-pick.jpg");
+  background-image: url("../../public/picture/banque-image/picture-form/back-customPic2.jpg");
   background-repeat: no-repeat;
   background-position: center right 20%;
   background-size: 60%;
@@ -23800,7 +23809,15 @@ footer .returnTop img {
   margin: auto auto auto 10%;
   width: 60%;
 }
-
+.customFormpic2 label {
+  font-family: Consolas, serif;
+  font-size: 22px;
+  background-color: white;
+  color: #157061;
+}
+.customFormpic2 legend {
+  display: none;
+}
 .customFormManager {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -24206,6 +24223,13 @@ h5, .h5 {
   color: #2c3034;
 }
 
+.customHotelButton {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 7%;
+}
+
 .card-hotel {
   border: 2px solid #684034;
   width: 80%;
@@ -24242,6 +24266,7 @@ h5, .h5 {
   margin: auto;
 }
 .hotel .customHotel .customHotemPictureButton img {
+  margin-left: 2%;
   max-height: 40vh;
   max-width: 40vh;
 }
@@ -24260,6 +24285,34 @@ h5, .h5 {
   margin-bottom: 4%;
 }
 
+.customHotelSuites {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: auto;
+}
+.customHotelSuites img {
+  max-height: 100%;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+}
+.customHotelSuites .customHotelSuitesPictures {
+  width: 48%;
+  margin: auto;
+}
+.customHotelSuites .customHotelSuitesPictures .customHotelelSuitesPictureList img {
+  margin: auto;
+  width: 32%;
+  max-width: 32%;
+}
+.customHotelSuites .customHotelSuitesList {
+  width: 48%;
+  margin: auto;
+  text-align: end;
+}
+
 .backPic {
   background-image: url("../../public/picture/banque-image/nav-footer/test-back.png");
   background-position: center;
@@ -24274,6 +24327,14 @@ h5, .h5 {
   background-position: center;
   background-size: 100%;
   width: 100%;
+}
+
+.backHotelId {
+  background-image: url("../../public/picture/banque-image/back/back-hotel-id.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  z-index: -2;
 }
 
 .backTable {

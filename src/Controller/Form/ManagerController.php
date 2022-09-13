@@ -37,6 +37,8 @@ class ManagerController extends AbstractController
 
             $entityManager->persist($manager);
             $entityManager->flush();
+            return $this->redirectToRoute('app_success_add_manager');
+
         }
         return $this->render('form/manager-creation.html.twig', [
             'title' => 'Hypnos - Creation Manager',

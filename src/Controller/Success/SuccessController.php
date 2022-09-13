@@ -12,7 +12,7 @@ class SuccessController extends AbstractController
     public function succesContact(): Response
     {
         return $this->render('success/success_contact_us.html.twig', [
-            'title' => 'Hypnos - Succés Envois Formulaire',
+            'title' => 'Hypnos - Succés Envoi Formulaire',
         ]);
     }
     #[Route('/success-register', name: 'app_success_register')]
@@ -27,7 +27,7 @@ class SuccessController extends AbstractController
     {
         $user = $this->getUser();
         return $this->render('success/success_reservation.html.twig', [
-            'title' => 'Succés Reservation',
+            'title' => 'Hypnos - Succés Reservation',
             'user' => $user,
         ]);
     }
@@ -35,7 +35,21 @@ class SuccessController extends AbstractController
     public function successChangePassword(): Response
     {
         return $this->render('success/success_change_password.html.twig', [
-            'title' => 'Succés Reservation',
+            'title' => 'Hypnos - Succés Reservation',
+        ]);
+    }
+    #[Route('/add-suite-success', name: 'app_success_add_suite')]
+    public function successAddSuite(): Response
+    {
+        return $this->render('success/success_add_suite.html.twig', [
+            'title' => 'Hypnos - Succés Ajout Suite',
+        ]);
+    }
+    #[Route('/add-suite-manager', name: 'app_success_add_manager')]
+    public function successAddManager(): Response
+    {
+        return $this->render('success/success_add_manager.html.twig', [
+            'title' => 'Hypnos - Succés Ajout Manager',
         ]);
     }
 }

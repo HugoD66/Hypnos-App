@@ -26,8 +26,10 @@ class Suite
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\OneToOne(mappedBy: 'suite', cascade: ['persist', 'remove'])]
+    #[ORM\ManyToOne(inversedBy: 'suite')]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Manager $manager = null;
+
 
     #[ORM\ManyToOne(inversedBy: 'suites')]
     private ?Hotel $hotel = null;
@@ -96,14 +98,14 @@ class Suite
     public function setManager(?Manager $manager): self
     {
         // unset the owning side of the relation if necessary
-        if ($manager === null && $this->manager !== null) {
-            $this->manager->setSuite(null);
-        }
+        //if ($manager === null && $this->manager !== null) {
+        //    $this->manager->setSuite(null);
+        //}
 
         // set the owning side of the relation if necessary
-        if ($manager !== null && $manager->getSuite() !== $this) {
-            $manager->setSuite($this);
-        }
+        //if ($manager !== null && $manager->getSuite() !== $this) {
+        //    $manager->setSuite($this);
+        //}
 
         $this->manager = $manager;
 
@@ -142,5 +144,10 @@ class Suite
         $this->pictureList = $pictureList;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return  $this->getName();
     }
 }
