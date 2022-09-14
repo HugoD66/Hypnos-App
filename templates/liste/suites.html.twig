@@ -8,7 +8,6 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
-
     {% for suite in suites %}
         <div class="customListe">
         <div class="customListeSuiteDesc">
@@ -19,7 +18,7 @@
             </p>
             <h5><b>Prix</b> :</h5>
             <p>
-                {{ suite.price }}
+                {{ suite.price }}€/Nuit
             </p>
             <h5><b>Description</b> :</h5>
             <p>
@@ -37,24 +36,7 @@
             </button>
         </div>
         </div>
-
-
-
-
-
     <div class="barreHorizontaleTwo"></div>
-
-
-
-
-
-
-
-
-
-
-
-
     {% endfor %}
 {% endblock %}
 

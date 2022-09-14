@@ -1,6 +1,14 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
+    <button type="button" class="buttonAcceuil" style=" float: right;
+                                                                margin-top: 2%;
+                                                                margin-bottom: 10%;
+                                                                margin-right: 14%;">
+        <a href="{{ path('app_liste_suites') }}">
+            Tous nos suites !
+        </a>
+    </button>
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">{{ suite.name }}</h2>
@@ -21,13 +29,25 @@
                         <h5>Propriétaire:</h5>
                             <p>{{ suite.manager }}</p>
                         <h5>Prix à la nuit :</h5>
-                            <p>{{ suite.price }}</p>
+                            <p>{{ suite.price }}€/Nuit</p>
                         <h5>Description: </h5>
                             <p>{{ suite.description }}</p>
                     </div>
                     <div class="suiteIdDescButton">
+
+                        {% if app.user %}
+                            {%  if is_granted('ROLE_ADMIN') %}
+                                <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suite.id}) }}">Modifier</a></button>
+                            {% elseif is_granted('ROLE_MANAGER') %}
+                                <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suite.id}) }}">Modifier</a></button>
+                            {% elseif is_granted('ROLE_USER') %}
+                                <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
+                            {% endif %}
+                        {% else %}
+                            <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
+
+                        {% endif %}
                         <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
-                        <button type="button" class="buttonAcceuil"><a href="#">Réserver</a></button>
 
                     </div>
                 </div>

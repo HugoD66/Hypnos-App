@@ -52,4 +52,33 @@ class SuccessController extends AbstractController
             'title' => 'Hypnos - Succés Ajout Manager',
         ]);
     }
+    #[Route('/update-suite-manager', name: 'app_success_update_suite')]
+    public function updateSuite(): Response
+    {
+        return $this->render('success/success_update_suite.html.twig', [
+            'title' => 'Hypnos - Succés Modification Suite',
+        ]);
+    }
+    #[Route('/update-picture-liste-manager', name: 'app_success_update_picture_list')]
+    public function updatePictureList(): Response
+    {
+        return $this->render('success/success_update_picture_list.html.twig', [
+            'title' => 'Hypnos - Succés Modification Galerie',
+        ]);
+    }
+    #[Route('/update-manager', name: 'app_success_update_manager')]
+    public function updateManager(): Response
+    {
+        return $this->render('success/success_update_manager.html.twig', [
+            'title' => 'Hypnos - Succés Modification Manager',
+        ]);
+    }
+    #[Route('/update-hotel', name: 'app_success_update_hotel')]
+    public function updateHotel(): Response
+    {
+        return $this->render('success/success_update_hotel.html.twig', [
+            'title' => 'Hypnos - Succés Modification Hotel',
+        ]);
+    }
+
 }

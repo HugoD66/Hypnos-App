@@ -105,7 +105,6 @@
     </div>
     <br>
     <h4>Liste des suites</h4>
-
     {% for suites in suite %}
         {% if hotel.id == suites.hotel.id %}
             <div class="customHotelSuites">
@@ -135,9 +134,9 @@
                 </div>
             </div>
             <div class="customHotelButton">
-                <button type="button" class="buttonAcceuil"><a href="#">Mettre à jours</a></button>
+                <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suites.id}) }}">Mettre à jour</a></button>
                 <button type="button" class="buttonAcceuil"><a href="{{ path('app_suite', { 'id' : suites.id}) }}">En savoir plus</a></button>
-                <button type="button" class="buttonAcceuil"><a href="#">Supprimer</a></button>
+                <button type="button" class="buttonAcceuil"><a href="{{ path('app_manager_gestion_remove_suite', { 'id': suites.id }) }}">Supprimer</a></button>
             </div>
             <div class="barreHorizontaleTwo"></div>
         {% else %}
@@ -164,5 +163,28 @@
     <div class="gestionManagerHotel" style="margin-bottom: 15%;">
         <button type="button" class="buttonSendForm"><a href="{{ path('app_picture_list') }}">Creation Galerie d'image</a></button>
     </div>
+    {% for suites in suite %}
+        {% if hotel.id == suites.hotel.id %}
+            {% for pictureLists in pictureList %}
+                {% if suites.id == pictureLists.suite.id %}
+                    <div class="galerieManager">
+                        <h4>{{ suites.name }}</h4>
+                        <div class="galerieManagerList">
+                            <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picOne) }}" alt="Galerie image chambre">
+                            <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picTwo) }}" alt="Galerie image chambre">
+                            <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picThree) }}" alt="Galerie image chambre">
+                        </div>
+                        <div class="customHotelButton">
+                            <button class="buttonAcceuil"><a href="{{ path('app_update_picture_list', { 'id' : pictureLists.id }) }}">Mettre à jour</a></button>
+                            <button class="buttonAcceuil"><a href="{{ path('app_manager_gestion_remove_pictureList', { 'id' : pictureLists.id }) }}">Supprimer</a></button>
+                        </div>
+                    </div>
+                    <div class="barreHorizontaleTwo"></div>
+                {% else %}
+                {% endif %}
+            {% endfor %}
+        {% else %}
+        {% endif %}
+{% endfor %}
 </div>
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Modification</h2>
+            <h3 class="littleTitle">Hotel</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="customFormPic">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.name, { 'label' : 'Nom: '}) }}
+            {{ form_row(form.city, { 'label' : 'Ville: '}) }}
+            {{ form_row(form.adress, { 'label' : 'Adresse: '}) }}
+            {{ form_row(form.description, { 'label' : 'Description de l\'hotel:'}) }}
+            {{ form_row(form.manager, { 'label' : 'Manager s\'occupant de l\'hotel:'}) }}
+            {{ form_row(form.submit, { 'label' : 'Créer'}) }}
+            {{ form_end(form) }}
+    </div>
+{% endblock %}

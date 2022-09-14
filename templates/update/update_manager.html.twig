@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<div class="titleCustom">
+    <div class="tittleList">
+        <h2 class="title">Modification</h2>
+        <h3 class="littleTitle">Manager</h3>
+    </div>
+    <div class="barreHorizontale"></div>
+</div>
+    <div class="customFormPic">
+        <div class="customFormManager">
+            {{ form_start(form) }}
+            {{ form_errors(form) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.first_name) }}
+            {{ form_row(form.last_name) }}
+            {{ form_row(form.hotel) }}
+            {{ form_row(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}

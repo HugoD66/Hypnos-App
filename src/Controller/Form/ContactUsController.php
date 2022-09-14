@@ -14,7 +14,7 @@ class ContactUsController extends AbstractController
 {
     #[Route('/contact-us', name: 'app_contact_us')]
     public function index(Request $request,
-                          EntityManagerInterface $entityManager,): Response
+                          EntityManagerInterface $entityManager): Response
     {
 
         $contactus = new ContactUs();

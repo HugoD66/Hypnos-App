@@ -1,4 +1,12 @@
 Faire:
+bouton creation manager
+bouton hotel mise a jour
+
+faire modif hotel, manager
+
+
+
+
     faire boutons de §etablissement/id(hotel) => RESERVER / EN SAVOIR PLUS
 
     faire et styliser les pages de gestion
@@ -6,7 +14,7 @@ Faire:
     faire responsive list hotel (et tout des rooms) (    regler la police plus grosse)
 
     form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
-
+    bug sur updateHotel( file)
 
     Chemin a faire quand Manager ( update suite ) =>
         dans /suite/id , au lieu de " reserver " => update

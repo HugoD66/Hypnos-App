@@ -55,29 +55,48 @@
         </table>
     </div>
     <div class="barreHorizontaleTwo"></div>
-
 <!-- Manager creation/ update /remove -->
     <div class="gestionAdmingestionHotel">
         <div class="gestionAdmingestionHotelExplain">
             <h4>Gestion Managers</h4>
-
             <p>Il vous sera permis, dans cette section, de gérer les différents manageurs faisant parti de votre entreprise. Vous pourrez en assigner un au
                 bâtiment de votre choix, pour qu'il puisse à son tour créer et administrer les différentes suites que compose l'hôtel.
             </p>
         </div>
         <div class="gestionAdmingestionHotelButtons">
             <button type="button" class="buttonSendForm"><a href="">Création Manager</a></button>
-            <button type="button" class="buttonSendForm"><a href="">Update Manager</a></button>
-            <button type="button" class="buttonSendForm"><a href="{{ path('app_manager_create') }}">Suppresion Manager</a></button>
         </div>
     </div>
+    <div class="gestionAdminTableManagerUpdate">
+            <table class="table table2">
+                <tbody>
+                {% for managers in manager %}
+                <tr>
+                    <th scope="row" class="emails">{{ managers.email }}</th>
+                    <th scope="row">
+                        <button type="button" class="buttonSendForm">
+                            <a href="{{ path('app_update_manager', { 'id' : managers.id}) }}">
+                                Mettre à jour
+                            </a>
+                        </button>
+                    </th>
+                    <th scope="row">
+                        <button type="button" class="buttonSendForm">
+                            <a href="{{ path('app_admin_gestion_remove_manager', { 'id' : managers.id}) }}">
+                                Supprimer
+                            </a>
+                        </button>
+                    </th>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+    </div><br>
     <div class="barreHorizontaleTwo"></div>
-<!-- Hotel creation/ update /remove -->
+<!-- Hotel gestion -->
     <div class="gestionAdmingestionHotel">
         <div class="gestionAdmingestionHotelButtons">
             <button type="button" class="buttonSendForm"><a href="{{ path('app_hotel_create') }}">Création Hotel</a></button>
-            <button type="button" class="buttonSendForm"><a href="">Update Hotel</a></button>
-            <button type="button" class="buttonSendForm"><a href="">Suppresion Hotel</a></button>
         </div>
         <div class="gestionAdmingestionHotelExplain">
             <h4>Gestion Hotel</h4>
@@ -86,6 +105,32 @@
             </p>
         </div>
     </div>
+    <div class="gestionAdminTableManagerUpdate">
+        <table class="table">
+            <tbody>
+            {% for hotellists in hotelList %}
+
+                <tr>
+                    <th scope="row">
+                        <button type="button" class="buttonSendForm">
+                            <a href="{{ path('app_admin_gestion_hotel_remove', { 'id' : hotellists.id}) }}">
+                                Supprimer
+                            </a>
+                        </button>
+                    </th>
+                    <th scope="row">
+                        <button type="button" class="buttonSendForm">
+                            <a href="{{ path('app_update_hotel', { 'id' : hotellists.id}) }}">
+                                Mettre à jour
+                            </a>
+                        </button>
+                    </th>
+                    <th scope="row" class="emails">{{ hotellists.name }}</th>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><br>
 <!-- ListeContactUs -->
     <div class="titleCustom">
         <div class="tittleList">
@@ -94,7 +139,6 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
-
     {% if contact == null %}
         <div class="successTwo m-0 align-items-center">
             <div class="explainSuccess">
@@ -141,7 +185,6 @@
                             <td>{{ c.content }}</td>
                         </tr>
                         </tbody>
-
                     </table>
                     <button type="button" class="buttonAcceuil">
                         <a href="{{ path('delete_form', {'id': c.id}) }}" onclick="return confirm('Etes vous sûre de supprimer ce formulaire de contact?  ')">
@@ -149,13 +192,8 @@
                         </a>
                     </button>
                 </div>
-
             {% endfor %}
         </div>
-
-
-
-</div>
-
+    </div>
     {% endif %}
 {% endblock %}

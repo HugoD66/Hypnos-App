@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<div class="titleCustom">
+    <div class="tittleList">
+        <h2 class="title">Modification</h2>
+        <h3 class="littleTitle">Galerie</h3>
+    </div>
+    <div class="barreHorizontale"></div>
+</div>
+    <div class="customFormPic">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.pic_one) }}
+        {{ form_row(form.pic_two) }}
+        {{ form_row(form.pic_three) }}
+        {{ form_row(form.submit) }}
+        {{ form_end(form) }}
+    </div>
+    <div class="buttonAdterForm" style="margin-left: 60%; margin-bottom: 10%;">
+        <button type="button" class="buttonAcceuil">
+            <a href="{{ path('app_manager_gestion', { 'id' : app.user.id}) }}">
+                Retour au compte
+            </a>
+        </button>
+    </div>
+
+
+
+
+{% endblock %}

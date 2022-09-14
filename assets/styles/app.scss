@@ -415,6 +415,18 @@ footer {
       margin-left: 50%;
     }
   }
+  .gestionAdminTableManagerUpdate {
+    table {
+      border: 1px solid $blueBorder;
+      padding: 1.1em;
+      margin: auto;
+      width: 80%;
+      .emails {
+        font-family: $button;
+      }
+    }
+  }
+
   //Gestion MANAGER
   .gestionManagerHotel {
     width: 90%;
@@ -443,7 +455,28 @@ footer {
       text-align: center;
     }
   }
-
+  .galerieManager {
+    .galerieManagerList {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 80%;
+      margin: auto;
+      img {
+        width: 30%;
+        height: 30%;
+        max-width: 30%;
+        max-height: 30%;
+        margin: 2%;
+      }
+    }
+    .galerieManagerButton {
+      width: 80%;
+      button {
+        margin: auto;
+      }
+    }
+  }
   //Gestion USER
 }                //Page gestion//
 .customFormPic {
@@ -926,8 +959,10 @@ h5 {
     .customHotemPictureButton {
       img {
         margin-left: 2%;
-        max-height: 40vh;
-        max-width: 40vh;
+        height: 100%;
+        width: 100%;
+        max-height: 100%;
+        max-width: 100%;
       }
     }
     .customHotelDescription {

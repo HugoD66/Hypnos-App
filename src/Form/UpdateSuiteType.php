@@ -2,34 +2,23 @@
 
 namespace App\Form;
 
-use App\Entity\PictureList;
 use App\Entity\Suite;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class PictureListType extends AbstractType
+class UpdateSuiteType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('pic_one', FileType::class, [
-                'label' => 'Photo suite 1 : ',
-            ])
-            ->add('pic_two', FileType::class, [
-                'label' => 'Photo suite 2 : ',
-            ])
-            ->add('pic_three', FileType::class, [
-                'label' => 'Photo suite 3 : ',
-            ])
-            ->add('suite', EntityType::class, [
-                'class' => Suite::class,
-                'required' => false,
-
-            ])
+            ->add('name')
+            ->add('description', TextAreaType::class)
+            ->add('price', IntegerType::class)
             ->add('submit', SubmitType::class, [
                 'attr' => array(
                     'class' => 'buttonSendForm',
@@ -37,10 +26,11 @@ class PictureListType extends AbstractType
             ])
         ;
     }
+
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => PictureList::class,
+            'data_class' => Suite::class,
         ]);
     }
 }
