@@ -19,5 +19,12 @@
         {{ form_row(form.submit, { 'label' : 'Envoyer'}) }}
         {{ form_row(form._token) }}
     </div>
+    <div class="buttonAdterForm" style="margin-left: 60%; margin-bottom: 10%;">
+        <button type="button" class="buttonAcceuil">
+            <a href="{{ path('app_manager_gestion', { 'id' : app.user.id}) }}">
+                Retour au compte
+            </a>
+        </button>
+    </div>
 {% endblock %}
 

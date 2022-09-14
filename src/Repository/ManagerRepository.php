@@ -56,6 +56,7 @@ class ManagerRepository extends ServiceEntityRepository implements PasswordUpgra
         $this->add($user, true);
     }
 
+
 //    /**
 //     * @return Manager[] Returns an array of Manager objects
 //     */

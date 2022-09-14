@@ -2,8 +2,10 @@
 
 namespace App\Controller\Gestion;
 
+use App\Entity\Hotel;
 use App\Entity\Manager;
-use App\Entity\User;
+use App\Entity\PictureList;
+use App\Entity\Suite;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,10 +18,17 @@ class ManagerGestionController extends AbstractController
                           int $id): Response
     {
         $manager = $doctrine->getRepository(Manager::class)->find($id);
+        $hotel = $doctrine->getRepository(Hotel::class)->findOneBy(['manager' => $manager]);
+        $suite = $doctrine->getRepository(Suite::class)->findAll();
+        $pictureList = $doctrine->getRepository(PictureList::class)->findAll();
 
         return $this->render('gestion/manager.html.twig', [
             'title' => 'Hypnos - Gestion Manager',
             'manager' => $manager,
+            'hotel' => $hotel,
+            'suite' => $suite,
+            'pictureList' => $pictureList,
+
         ]);
     }
 }

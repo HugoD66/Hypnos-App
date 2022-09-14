@@ -39,6 +39,21 @@ class HotelRepository extends ServiceEntityRepository
         }
     }
 
+
+/**
+    public function getHotelByManager()
+    {
+        return $this->createQueryBuilder('u')
+            ->select('u.id, u.adress, u.city, u.description, u.manager, u.image, u.name, u.suites')
+            ->andWhere('u.manager = u.manager.manager')
+            ->getQuery()
+            ->getResult();
+
+    }
+ */
+
+
+
 //    /**
 //     * @return Hotel[] Returns an array of Hotel objects
 //     */

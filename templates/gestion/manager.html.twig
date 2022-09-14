@@ -1,8 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-
 {% block body %}
+<!-- Présentation -->
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Page de gestion</h2>
@@ -10,15 +9,83 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
+<div class="gestion">
+    <div class="gestionPres">
+        <div class="gestionPresList">
+            <ul>
+                <li><b>Votre prénom :</b> {{ manager.firstName }}</li>
+                <li><b>Votre nom :</b> {{ manager.lastName }}</li>
+                <li><b>Votre mail :</b> {{ manager.email }}</li>
+            </ul>
+        </div>
+        <div class="gestionPresP">
+            <p>Il est responsable de la <b>gestion</b>gestion de l'exploitation de l'établissement et des résultats. Pour développer le chiffre d'affaires
+                de son établissement, il veille au taux de remplissage de son hôtel afin de dégager du chiffre d'affaires tout en satisfaisant
+                la clientèle.</p>
+        </div>
+    </div>
+<!-- Changement mdp -->
+    <div class="gestionAdmingestionHotel" style="width: 80%; margin: 10% auto;">
 
+        <div class="gestionAdmingestionHotelExplain">
+            <h5>Changement Mot de passe</h5>
+            <p>Lors de votre première connexion, il vous est conseillé de renouveler
+                le mot de passe vous ayant été fourni par l'administrateur.
+            </p>
+        </div>
+        <div class="gestionAdmingestionHotelButtons" style="width: 45%;">
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_manager_change_password', { 'id' : manager.id }) }}">Changez votre Mot de passe ! </a></button>
+        </div>
+    </div>
+<!-- Son Hotel -->
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Votre hotel</h2>
+            <h3 class="littleTitle">Attribution</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="gestionManagerHotel">
+    <p>Vous avez ici une vue d'ensemble sur votre Hotel. Il ne vous sera pas permis de modifier ses informations,
+        mais il sera par contre autorisé la création de suites le composant. Le panorama de gestion de suite est plus bas.</p>
+            <img
+                src="{{ asset('picture/banque-image/logo-icones/manager-gestion-WithBack.png') }}"
+                alt="Image de gesion manager">
+    </div>
 
-
-    <button type="button"><a href="{{ path('app_suite_create') }}">Creation Suite</a></button>
-    <button type="button"><a href="{{ path('app_manager_change_password', { 'id' : app.user.id}) }}">Changement mdp</a></button>
-    <button type="button"><a href="{{ path('app_picture_list') }}">Creation PictureList</a></button>
-
-
-
+    <div class="hotel">
+        <div class="backGestionManager">
+            <h4> •{{ hotel.name }}</h4>
+            <div class="customHotel">
+                <div class="customHotemPictureButton">
+                    <img class="" src="{{ asset('picture/recipe-picture/' ~ hotel.getImage()) }}" alt="Image de l'hotel">
+                    <div class="customHotelButtons">
+                        <button type="button" class="buttonNav"><a href="{{ path('app_etablissement', { 'id' : hotel.id}) }}" class="card-link">Accès Hotel</a></button>
+                    </div>
+                </div>
+                <div class="customHotelDescription">
+                    <h5><b>Description</b>:</h5>
+                    <p class="">{{ hotel.description |u.truncate(200) }}...</p>
+                    <div class="customHotelListe">
+                        <h5><b>Adresse</b> :</h5>
+                        <p>
+                            {{ hotel.adress }}
+                        </p>
+                        <h5><b>Ville</b> :</h5>
+                        <p>
+                            {{ hotel.city }}
+                        </p>
+                        <h5><b>Nombre de suites</b> :</h5>
+                        <p>
+                            {{ hotel.suites.count }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+<!-- Ses suites -->
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Vos suite</h2>
@@ -26,8 +93,57 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
+    <div class="gestionManagerHotel">
+        <img
+                src="{{ asset('picture/banque-image/logo-icones/icon-hotel-withoutBack.png') }}"
+                alt="Image de gestion manager"
+        style="width: 20%; height: 20%; max-width: 20%; max-height: 20%; margin-bottom: 8%;">
+        <p>Vous trouverez ci-dessous la liste des suites qui sont assignées à <b>{{ hotel.name }}</b>. Vous pourrez en créer des nouvelles, ou en actualiser</p>
+    </div>
+    <div class="gestionManagerHotel">
+        <button type="button" class="buttonSendForm"><a href="{{ path('app_suite_create') }}">Ajout d'une suite</a></button>
+    </div>
+    <br>
+    <h4>Liste des suites</h4>
 
-
+    {% for suites in suite %}
+        {% if hotel.id == suites.hotel.id %}
+            <div class="customHotelSuites">
+                <div class="customHotelSuitesPictures">
+                    <div class="customHotelSuitesPicture">
+                        <img class="" src="{{ asset('picture/recipe-picture/' ~ suites.picture) }}" alt="Image de la chambre">
+                    </div>
+                    <div class="customHotelelSuitesPictureList">
+                        {% for pictureLists in pictureList %}
+                            {% if suites.id == pictureLists.suite.id %}
+                                <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picOne) }}" alt="Galerie image chambre">
+                                <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picTwo) }}" alt="Galerie image chambre">
+                                <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picThree) }}" alt="Galerie image chambre">
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="customHotelSuitesList">
+                    <h4>{{ suites.name }}</h4>
+                    <h5>Description :</h5>
+                    <p>{{ suites.description |u.truncate(100) }}</p>
+                    <h5>Prix :</h5>
+                    <p>{{ suites.price }} €/Nuit</p>
+                    <h5>Propriétaire :</h5>
+                    <p>{{ suites.manager }}</p>
+                </div>
+            </div>
+            <div class="customHotelButton">
+                <button type="button" class="buttonAcceuil"><a href="#">Mettre à jours</a></button>
+                <button type="button" class="buttonAcceuil"><a href="{{ path('app_suite', { 'id' : suites.id}) }}">En savoir plus</a></button>
+                <button type="button" class="buttonAcceuil"><a href="#">Supprimer</a></button>
+            </div>
+            <div class="barreHorizontaleTwo"></div>
+        {% else %}
+        {% endif %}
+    {% endfor %}
+<!-- Ajout de photo (PictureList) -->
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Ajouter des photos</h2>
@@ -35,4 +151,18 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
+    <div class="gestionManagerHotel">
+        <img
+            src="{{ asset('picture/banque-image/logo-icones/customForm.png') }}"
+            alt="Image de gestion manager"
+            style="width: 20%; height: 20%; max-width: 20%; max-height: 20%; margin-bottom: 8%;"
+        >
+        <p>
+            Vous pourrez ci-dessous ajouter une galerie d'image accompagnant la Suite précédemment créée.
+        </p>
+    </div>
+    <div class="gestionManagerHotel" style="margin-bottom: 15%;">
+        <button type="button" class="buttonSendForm"><a href="{{ path('app_picture_list') }}">Creation Galerie d'image</a></button>
+    </div>
+</div>
 {% endblock %}

@@ -8,6 +8,9 @@ Faire:
     form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
 
 
+    Chemin a faire quand Manager ( update suite ) =>
+        dans /suite/id , au lieu de " reserver " => update
+
     Wireframes
 
     footer :   position: absolute;
@@ -64,16 +67,3 @@ BUNDLES :
         Doctrine
         Assert contraint
         Twig Extra
-
-
-
-
-
-
-
-
-
-
-
-
-

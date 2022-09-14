@@ -23863,6 +23863,135 @@ footer .returnTop img {
   text-align: center;
 }
 
+.gestion .gestionPres {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  width: 90%;
+}
+.gestion .gestionPres .gestionPresP {
+  width: 49%;
+  font-size: 1.2em;
+  font-family: Oswald, sans-serif;
+  color: black;
+  text-align: center;
+  background-color: #DFFFFE;
+}
+.gestion .gestionPres .gestionPresList {
+  width: 39%;
+  margin: auto;
+}
+.gestion .gestionPres .gestionPresList li {
+  font-size: 1.3em;
+  font-family: Consolas, sans-serif;
+}
+.gestion .gestionAdminTableHotelManager {
+  background-image: url("../../public/picture/banque-image/back/back-hotel-id.png");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.gestion .gestionAdminTableHotelManager table {
+  width: 90%;
+  margin: auto;
+  border: #157061;
+}
+.gestion .gestionAdminTableHotelManager table thead {
+  text-decoration: underline 1px solid #eee6d6;
+  color: #684034;
+  font-family: Consolas, sans-serif;
+  font-size: 1.5em;
+  padding: 2%;
+}
+.gestion .gestionAdminTableHotelManager table tbody {
+  font-family: Oswald, sans-serif;
+  font-size: 1.3em;
+  width: 80%;
+}
+.gestion .gestionAdmingestionHotel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  margin: 5% auto 5%;
+}
+.gestion .gestionAdmingestionHotel .gestionAdmingestionHotelExplain {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+.gestion .gestionAdmingestionHotel .gestionAdmingestionHotelExplain h4, .gestion .gestionAdmingestionHotel .gestionAdmingestionHotelExplain .h4 {
+  margin: auto;
+}
+.gestion .gestionAdmingestionHotel .gestionAdmingestionHotelExplain p {
+  margin-top: 3%;
+  font-size: 1.2em;
+  font-family: Oswald, sans-serif;
+}
+.gestion .gestionAdmingestionHotel .gestionAdmingestionHotelButtons {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.gestion .gestionAdmingestionHotel .gestionAdmingestionHotelButtons button {
+  margin: 8%;
+  text-align: center;
+  width: 80%;
+  height: 10%;
+}
+.gestion .gestionAdmingestionHotel .gestionAdmingestionHotelButtons button a {
+  text-align: center;
+  font-size: 1.2em;
+}
+.gestion .backTable .backAdminTable {
+  background-image: url("../../public/picture/banque-image/back/back-tableUser-responsive3.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  margin-bottom: 5%;
+}
+.gestion .backTable .backAdminTable table {
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.gestion .backTable .backAdminTable tbody {
+  margin: auto;
+}
+.gestion .backTable button {
+  width: 20%;
+  height: 5%;
+  margin-left: 50%;
+}
+.gestion .gestionManagerHotel {
+  width: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: auto;
+}
+.gestion .gestionManagerHotel p {
+  width: 45%;
+  font-size: 1.2em;
+  font-family: Consolas, sans-serif;
+  background-color: #DFFFFE;
+  text-align: center;
+}
+.gestion .gestionManagerHotel img {
+  width: 40%;
+  height: 40%;
+  max-height: 40%;
+  max-width: 40%;
+}
+.gestion .hotel h4, .gestion .hotel .h4 {
+  margin: 10% auto;
+  text-align: center;
+}
+
 .customFormPic {
   margin-top: 15%;
   margin-bottom: 15%;
@@ -24082,10 +24211,6 @@ footer .returnTop img {
 }
 
 h4, .h4 {
-  /*background-image: url("../../public/picture/banque-image/back/Back-h4.png");
-  background-repeat: no-repeat;
-  background-position: center ;
-  background-size: 100%;*/
   text-align: center;
   color: #157061;
   text-decoration: underline 2px #684034;
@@ -24366,8 +24491,8 @@ h5, .h5 {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  margin-top: 4%;
-  margin-bottom: 4%;
+  margin-top: 6%;
+  margin-bottom: 2%;
 }
 
 .customHotelSuites {
@@ -24422,16 +24547,12 @@ h5, .h5 {
   z-index: -2;
 }
 
-.backTable {
-  background-image: url("../../public/picture/banque-image/picture-form/back-change-password2.png");
+.backGestionManager {
+  background-image: url("../../public/picture/banque-image/back/back-GestionManagerHotel.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
   z-index: -2;
-}
-.backTable table {
-  margin-top: 5%;
-  margin-bottom: 5%;
 }
 
 .barreHorizontaleTwo {
@@ -24468,6 +24589,17 @@ h5, .h5 {
     position: center;
     width: 49%;
     margin: auto auto 3%;
+  }
+
+  .backTable {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .backTable .backAdminTable {
+    width: 50%;
   }
 }
 
