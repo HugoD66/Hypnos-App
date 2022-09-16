@@ -16,7 +16,9 @@
                 {{ form_row(form.pic_two) }}
                 {{ form_row(form.pic_three) }}
                 {{ form_row(form.suite) }}
-            {{ form_row(form.submit) }}
+            <div class="formSubmit" onClick="showConfirm()">
+                {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+            </div>
             {{ form_end(form) }}
     </div>
     <div class="buttonAdterForm" style="margin-left: 60%; margin-bottom: 10%;">

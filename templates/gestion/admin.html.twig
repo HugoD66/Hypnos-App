@@ -4,27 +4,30 @@
 <!-- Présentation -->
     <div class="titleCustom">
         <div class="tittleList">
-            <h2 class="title">Page de gestion</h2>
-            <h3 class="littleTitle">Administrateur</h3>
+            <h2 class="title">Administrateur</h2>
+            <h3 class="littleTitle">Gestion</h3>
         </div>
         <div class="barreHorizontale"></div>
     </div>
 <div class="gestion">
-    <div class="gestionPres">
-        <div class="gestionPresList">
-            <ul>
-                <li><b>Votre prénom :</b> {{ admin.firstName }}</li>
-                <li><b>Votre nom :</b> {{ admin.lastName }}</li>
-                <li><b>Votre mail :</b> {{ admin.email }}</li>
-            </ul>
-        </div>
-        <div class="gestionPresP">
-            <p>Le terme « administrateur de site » désigne communément celui qui est chargé d'un site. Il gère tout, ou une partie, des domaines de la
-                conception du site et sa mise en place technique (parfois la mission éditoriale) est comprise dans ses fonctions. Il gère au jour le jour la
-                technique et met à jour le contenu.</p>
+    <div class="responsiveGestion">
+        <div class="gestionPres">
+            <div class="gestionPresList">
+                <ul>
+                    <li><b>Votre prénom :</b> {{ admin.firstName }}</li>
+                    <li><b>Votre nom :</b> {{ admin.lastName }}</li>
+                    <li><b>Votre mail :</b> {{ admin.email }}</li>
+                </ul>
+            </div>
+            <div class="gestionPresP">
+                <p>Le terme « administrateur de site » désigne communément celui qui est chargé d'un site. Il gère tout, ou une partie, des domaines de la
+                    conception du site et sa mise en place technique (parfois la mission éditoriale) est comprise dans ses fonctions. Il gère au jour le jour la
+                    technique et met à jour le contenu.</p>
+            </div>
         </div>
     </div>
-<!-- Hotel/ManagerLiaison -->
+
+    <!-- Hotel/ManagerLiaison -->
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Hotel/Manager</h2>
@@ -56,81 +59,83 @@
     </div>
     <div class="barreHorizontaleTwo"></div>
 <!-- Manager creation/ update /remove -->
-    <div class="gestionAdmingestionHotel">
-        <div class="gestionAdmingestionHotelExplain">
-            <h4>Gestion Managers</h4>
-            <p>Il vous sera permis, dans cette section, de gérer les différents manageurs faisant parti de votre entreprise. Vous pourrez en assigner un au
-                bâtiment de votre choix, pour qu'il puisse à son tour créer et administrer les différentes suites que compose l'hôtel.
-            </p>
+    <div class="responsiveGestion">
+
+        <div class="gestionAdmingestionHotel">
+            <div class="gestionAdmingestionHotelExplain">
+                <h4>Gestion Managers</h4>
+                <p>Il vous sera permis, dans cette section, de gérer les différents manageurs faisant parti de votre entreprise. Vous pourrez en assigner un au
+                    bâtiment de votre choix, pour qu'il puisse à son tour créer et administrer les différentes suites que compose l'hôtel.
+                </p>
+            </div>
+            <div class="gestionAdmingestionHotelButtons">
+                <button type="button" class="buttonSendForm"><a href="{{ path('app_manager_create') }}">Création Manager</a></button>
+            </div>
         </div>
-        <div class="gestionAdmingestionHotelButtons">
-            <button type="button" class="buttonSendForm"><a href="">Création Manager</a></button>
+        <div class="gestionAdminTableManagerUpdate">
+                <table class="table table2">
+                    <tbody>
+                    {% for managers in manager %}
+                    <tr>
+                        <th scope="row" class="emails">{{ managers.email }}</th>
+                        <th scope="row">
+                            <button type="button" class="buttonSendForm">
+                                <a href="{{ path('app_update_manager', { 'id' : managers.id}) }}">
+                                    Mettre à jour
+                                </a>
+                            </button>
+                        </th>
+                        <th scope="row">
+                            <button type="button" class="buttonSendForm">
+                                <a href="{{ path('app_admin_gestion_remove_manager', { 'id' : managers.id}) }}" onclick="return confirm('Etes vous sûre de supprimer ce manager?  ')">
+                                    Supprimer
+                                </a>
+                            </button>
+                        </th>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+        </div><br>
+        <div class="barreHorizontaleTwo"></div>
+    <!-- Hotel gestion -->
+        <div class="gestionAdmingestionHotel">
+            <div class="gestionAdmingestionHotelButtons">
+                <button type="button" class="buttonSendForm"><a href="{{ path('app_hotel_create') }}">Création Hotel</a></button>
+            </div>
+            <div class="gestionAdmingestionHotelExplain">
+                <h4>Gestion Hotel</h4>
+                <p>Il vous sera permis, dans cette section, de créer les différents hotels que compose votre entreprise. Vous pourrez modifier leurs informations
+                    En cas de besoin, puis un manager (précédemment créé) pourra y insérer les différentes suites constituant l'hotel en question.
+                </p>
+            </div>
         </div>
-    </div>
-    <div class="gestionAdminTableManagerUpdate">
-            <table class="table table2">
+        <div class="gestionAdminTableManagerUpdate">
+            <table class="table">
                 <tbody>
-                {% for managers in manager %}
-                <tr>
-                    <th scope="row" class="emails">{{ managers.email }}</th>
-                    <th scope="row">
-                        <button type="button" class="buttonSendForm">
-                            <a href="{{ path('app_update_manager', { 'id' : managers.id}) }}">
-                                Mettre à jour
-                            </a>
-                        </button>
-                    </th>
-                    <th scope="row">
-                        <button type="button" class="buttonSendForm">
-                            <a href="{{ path('app_admin_gestion_remove_manager', { 'id' : managers.id}) }}">
-                                Supprimer
-                            </a>
-                        </button>
-                    </th>
-                </tr>
+                {% for hotellists in hotelList %}
+                    <tr>
+                        <th scope="row" class="emails">{{ hotellists.name }}</th>
+                        <th scope="row">
+                            <button type="button" class="buttonSendForm">
+                                <a href="{{ path('app_update_hotel', { 'id' : hotellists.id}) }}">
+                                    Mettre à jour
+                                </a>
+                            </button>
+                        </th>
+                        <th scope="row">
+                            <button type="button" class="buttonSendForm" onClick="showConfirm()">
+                                <a href="{{ path('app_admin_gestion_hotel_remove', { 'id' : hotellists.id}) }}">
+                                    Supprimer
+                                </a>
+                            </button>
+                        </th>
+                    </tr>
                 {% endfor %}
                 </tbody>
             </table>
-    </div><br>
-    <div class="barreHorizontaleTwo"></div>
-<!-- Hotel gestion -->
-    <div class="gestionAdmingestionHotel">
-        <div class="gestionAdmingestionHotelButtons">
-            <button type="button" class="buttonSendForm"><a href="{{ path('app_hotel_create') }}">Création Hotel</a></button>
-        </div>
-        <div class="gestionAdmingestionHotelExplain">
-            <h4>Gestion Hotel</h4>
-            <p>Il vous sera permis, dans cette section, de créer les différents hotels que compose votre entreprise. Vous pourrez modifier leurs informations
-                En cas de besoin, puis un manager (précédemment créé) pourra y insérer les différentes suites constituant l'hotel en question.
-            </p>
-        </div>
+        </div><br>
     </div>
-    <div class="gestionAdminTableManagerUpdate">
-        <table class="table">
-            <tbody>
-            {% for hotellists in hotelList %}
-
-                <tr>
-                    <th scope="row">
-                        <button type="button" class="buttonSendForm">
-                            <a href="{{ path('app_admin_gestion_hotel_remove', { 'id' : hotellists.id}) }}">
-                                Supprimer
-                            </a>
-                        </button>
-                    </th>
-                    <th scope="row">
-                        <button type="button" class="buttonSendForm">
-                            <a href="{{ path('app_update_hotel', { 'id' : hotellists.id}) }}">
-                                Mettre à jour
-                            </a>
-                        </button>
-                    </th>
-                    <th scope="row" class="emails">{{ hotellists.name }}</th>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    </div><br>
 <!-- ListeContactUs -->
     <div class="titleCustom">
         <div class="tittleList">
@@ -197,3 +202,4 @@
     </div>
     {% endif %}
 {% endblock %}
+

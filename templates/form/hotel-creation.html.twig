@@ -17,7 +17,9 @@
                 {{ form_row(form.description, { 'label' : 'Description de l\'hotel:'}) }}
                 {{ form_row(form.image, { 'label' : 'Image: '}) }}
                 {{ form_row(form.manager, { 'label' : 'Manager s\'occupant de l\'hotel:'}) }}
-            {{ form_row(form.submit, { 'label' : 'Créer'}) }}
-            {{ form_end(form) }}
+            <div class="formSubmit" onClick="showConfirm()">
+                {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+            </div>
+        {{ form_end(form) }}
     </div>
 {% endblock %}

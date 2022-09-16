@@ -18,7 +18,13 @@
     </div>
     {% for hotels in hotel %}
 <div class="hotel">
-        <h4> •{{ hotels.name }}</h4>
+        <h4><a href="">
+                <h4><a href="{{ path('app_etablissement', { 'id' : hotels.id }) }}">
+                        •{{ hotels.name }}
+                    </a>
+                </h4>
+            </a>
+        </h4>
         <div class="customHotel">
             <div class="customHotemPictureButton">
                 <img class="" src="{{ asset('picture/recipe-picture/' ~ hotels.getImage()) }}" alt="Image de l'hotel">

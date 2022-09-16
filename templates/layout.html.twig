@@ -18,7 +18,18 @@
         {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
-
+            <script>
+                function showConfirm() {
+                    var confirmation = confirm("Voulez vous faire cette action?");
+                    if (confirmation === true) {
+                        alert("vous avez cliqué OK");
+                        return true;
+                    } else {
+                        alert("Opération annulée");
+                        return false;
+                    }
+                }
+            </script>
         {% endblock %}
     </head>
     <body>

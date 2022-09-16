@@ -1,35 +1,16 @@
 Faire:
-bouton creation manager
-bouton hotel mise a jour
 
-faire modif hotel, manager
-
+Entitée Booking + relations + Page Zoning
+redirect si acces denied
 
 
 
-    faire boutons de §etablissement/id(hotel) => RESERVER / EN SAVOIR PLUS
-
-    faire et styliser les pages de gestion
-
-    faire responsive list hotel (et tout des rooms) (    regler la police plus grosse)
+Wireframes
 
     form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
     bug sur updateHotel( file)
 
-    Chemin a faire quand Manager ( update suite ) =>
-        dans /suite/id , au lieu de " reserver " => update
 
-    Wireframes
-
-    footer :   position: absolute;
-               bottom: 0; ?
-
-    Pages manquantes :
-        ADMIN:    Gerant update;Hotel Update; et delete!
-
-
-
-    Finir Zoning clientGestion
 
 
 A VOIR ??????
@@ -41,18 +22,6 @@ A VOIR ??????
 protection pour hotel ( seulement admin):
             # - { path: ^/gestionhoteltadadi, roles: ROLE_ADMIN }
                 et avec twig {{ if app.user.admin chépakoi }}
-
-
-
-
-
-        enlevé à picture list
-                    ->add('suite', EntityType::class, [
-                        'class' => Suite::class,
-                        'required' => false,
-
-                    ])
-
 
 
 

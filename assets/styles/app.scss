@@ -4,8 +4,9 @@
 
 
 body {
-  margin: auto;
-  position: relative;
+  margin:0;
+  padding:0;
+  height:100%;
 }                  // * //
 nav {
   background-image: url("../../public/picture/banque-image/nav-footer/BackNav-Blue3.png");
@@ -23,6 +24,9 @@ nav {
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    .listeButtons {
+      margin: 4%;
+    }
     img {
       margin: 20%;
       &:hover {
@@ -33,19 +37,32 @@ nav {
   }
 }
 footer {
-  background-image: url("../../public/picture/banque-image/nav-footer/BackFooter-Blue.png");
-  background-repeat: no-repeat;
-  background-position: center bottom;
-  bottom: 0;
-  right: 0;
+  position: relative;
   width: 100%;
-  background-size: 100%;
-
+  bottom: 0;
+  height: auto;
+  right: 0;
+  margin-bottom: 0%;
+  .backFooter {
+    background-image: url("../../public/picture/banque-image/nav-footer/BackFooter-Blue.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    width: 100%;
+    z-index: -1;
+    bottom: 0;
+    background-size: 100%;
+  }
   .listeFooter {
+    z-index:+1;
+    bottom: 0;
     display: flex;
-    align-items: center;
+    align-items: end;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 0;
+    height: 20em;
+    position:absolute;
+    width: 100%;
     img {
       margin: 5%;
     }
@@ -88,7 +105,7 @@ footer {
   align-items: center;
   width: 90%;
   margin: auto;
-  background-image: url('../../public/picture/banque-image/acceuil/Back-HypnosAccueil.jpg');
+  background-image: url('../../public/picture/banque-image/acceuil/back-accueil3.jpg');
   background-position: right;
   background-repeat: no-repeat;
   background-size: 80%;
@@ -131,21 +148,6 @@ footer {
     margin: auto;
   }
 }
-.contactHome {
-  margin: 10%;
-  flex-direction: row;
-
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  p {
-    width: 50%;
-    text-align: center;
-    font-size: 18px;
-    font-family: $textOne;
-  }
-
-}
 .carousel {
   width: 80%;
   margin: auto;
@@ -186,8 +188,10 @@ footer {
     text-decoration: underline 1px solid $marronLight;
   }
   .customHotelIdExplain {
+    margin: auto;
     display: flex;
     flex-wrap: wrap;
+    width: 80%;
     .customHotelIdExplain1 {
       width: 49%;
       margin: auto;
@@ -202,7 +206,7 @@ footer {
       width: 49%;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: end;
       img {
         width:35%;
         height:35%;
@@ -234,18 +238,14 @@ footer {
     margin: auto;
   }
   .suiteIdGalerie {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    width: 90%;
     img {
-      max-width: 32%;
-      max-height: 30%;
+      display: inline-block;
       width: 32%;
-      height: 30%;
+      height : auto;
+      margin: auto;
     }
   }
-
   .suiteIdDesc {
     .suiteIdDescListButton {
       display: flex;
@@ -313,9 +313,9 @@ footer {
     justify-content: center;
     align-items: center;
     margin: auto;
-    width: 90%;
+    width: 80%;
     .gestionPresP {
-    width: 49%;
+    width: 45%;
     font-size: 1.2em;
     font-family: $textOne;
     color: black;
@@ -323,7 +323,7 @@ footer {
     background-color: $blueNav;
     }
     .gestionPresList {
-      width: 39%;
+      width: 34%;
       margin: auto;
       li {
         font-size: 1.3em;
@@ -357,11 +357,36 @@ footer {
       }
     }
   }
+  .gestionUserTableHotel {
+    background-image: url('../../public/picture/banque-image/back/back-table.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 7%;
+    margin-bottom: 7%;
+    table {
+      width: 90%;
+      margin: auto;
+      border: $blueBorder;
+      thead {
+        text-decoration: underline 1px solid $marronLight;
+        color: $marronLogo;
+        font-family: $button;
+        font-size: 1.5em;
+        padding: 2%;
+      }
+      tbody {
+        font-family: $textOne;
+        font-size: 1.3em;
+        width: 80%;
+      }
+    }
+  }
   .gestionAdmingestionHotel {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 90%;
+    width: 85%;
     margin: 5% auto 5%;
     .gestionAdmingestionHotelExplain {
       width: 40%;
@@ -552,13 +577,22 @@ footer {
   width: 60%;
   }
 }
-.customChangePassword {
-  margin-top: 15%;
-  margin-bottom: 15%;
+.customChangePasswordBack {
   background-image: url("../../public/picture/banque-image/picture-form/back-change-password2.png");
   background-repeat: no-repeat;
-  background-position: center right 20%;
+  background-position: center;
   width: 100%;
+  background-size: 100%;
+
+  .formCustomChangePass {
+    margin-top: 15%;
+    margin-bottom: 15%;
+    min-height:100%;
+    position:relative;
+    width: 80%;
+  }
+
+
   label {
     font-family: $subTitle;
     font-size: 22px;
@@ -664,6 +698,8 @@ footer {
   }
 }
 .titleCustom {
+  width: 90%;
+  margin: auto;
   .tittleList {
     display: flex;
     align-items: end;
@@ -687,7 +723,7 @@ footer {
     //border: 2px solid $marronDark;
     font-family: $subTitle;
     padding: 1%;
-
+    color: white;
   }
   .barreHorizontale {
     position: relative;
@@ -762,10 +798,10 @@ h5 {
 }               //Bouton nav//
 .buttonAcceuil {
   background-color: transparent;
-  border: 1px solid #266DB6;
+  border: 3px solid $blueBorder;
   box-sizing: border-box;
   color: #00132C;
-  font-family: "Avenir Next LT W01 Bold",sans-serif;
+  font-family: $button;
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
@@ -807,7 +843,7 @@ h5 {
     font-family: $button;
     text-decoration: none;
     color: $blueBorder;
-    font-size: 1.6em;
+    font-size: 1.3em;
     font-weight: bold;
   }
 }           //Bouton Acceuil//
@@ -956,9 +992,11 @@ h5 {
     justify-content: center;
     align-items: center;
     margin: auto;
+    width: 95%;
     .customHotemPictureButton {
+      width: 80%;
       img {
-        margin-left: 2%;
+        display: block;
         height: 100%;
         width: 100%;
         max-height: 100%;
@@ -980,6 +1018,15 @@ h5 {
     width: 100%;
     margin-top: 6%;
     margin-bottom: 2%;
+    a {
+      font-size: 1.3em;
+    }
+  }
+  h4 {
+    a {
+      text-decoration: none;
+      color: $blueBorder;
+    }
   }
 }                   //CustomCard//
 .customHotelSuites{
@@ -999,10 +1046,16 @@ h5 {
     margin: auto;
 
     .customHotelelSuitesPictureList {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2%;
       img {
+        display: inline-block;
         margin: auto;
         width:32%;
         max-width:32%;
+        height:32%;
+        max-height:32%;
       }
     }
   }
@@ -1010,7 +1063,16 @@ h5 {
     width: 48%;
     margin: auto;
     text-align: end;
+    h4 {
+      text-align: end;
+      margin: auto;
+      a {
+        text-decoration: none;
+        color: $blueBorder;
+      }
+    }
   }
+
 }        //Custom Suites de l'Hotels(ID)//
 .backPic {
   background-image: url('../../public/picture/banque-image/nav-footer/test-back.png');
@@ -1051,16 +1113,52 @@ h5 {
 
 
 @media screen and (min-width: 970px) {
+
+  .backFooter {
+    /*background-image: url("../../public/picture/banque-image/back/footer-back2.png");*/
+    height: 25em;
+    .listeFooter {
+    }
+  }
   nav {
     height: 20em;
   }
+  .customHotel {
+    margin: 15%;
+  }
 }     // Media Query (mobileFirst)//
 @media screen and (min-width: 1280px) {
-  nav {
-    background-image: url("../../public/picture/banque-image/nav-footer/BackNav-BlueResponsiveDesktop2.png");
+
+  .responsiveGestion {
+    width: 80%;
+    margin: auto;
   }
-  footer {
-    background-image: url("../../public/picture/banque-image/nav-footer/BackFooter-BlueReponsiveDesktop.png");
+  .roomId {
+    width: 70%;
+  }
+  .hotel {
+    width: 75%;
+    margin: auto;
+  }
+  .suiteIdGalerie {
+    width: 70%;
+  }
+  .customHotelId {
+    width: 75%;
+  }
+  .titleCustom {
+    width: 70%;
+    margin: auto;
+  }
+  .presentation {
+    width: 65%;
+    margin: auto;
+  }
+  .carousel {
+    width: 50%;
+  }
+  .backPic {
+    background-image: url('../../public/picture/banque-image/back/back-carousel-responsive.png');
   }
   .buttonAcceuil {
     width: 20em;
@@ -1072,7 +1170,6 @@ h5 {
     position: center;
     width: 49%;
     margin: auto auto 3%;
-
   }
   .backTable {
     display: flex;
@@ -1083,6 +1180,57 @@ h5 {
     .backAdminTable {
       width: 50%;
     }
+  }
+  .customHotelIdExplain {
+    width: 65%;
+  }
+  .customHotelSuites {
+    width: 60%;
+  }
+  .customHotelButton {
+    width: 60%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5% auto;
+  }
+  .loginForm {
+    width: 70%;
+  }
+  .customChangePasswordBack {
+    background-image: url("../../public/picture/banque-image/back/back-responsiveChangePass.png");
+  }
+  .galerieManager {
+    width: 70%;
+    margin: auto;
+  }
+  .customHotelButton {
+    .buttonAcceuil {
+      font-size: 14px;
+      width: 14em;
+      height: 4.6em;
+      a {
+        font-size: 1.2em;
+        margin: auto;
+      }
+    }
+  }
+  .gestionManagerHotel {
+    width: 75%;
+  }
+  .gestionAdminTableHotelManager {
+    table {
+    width: 60%;
+    }
+  }
+  .explainSuccess {
+    width: 40%;
+    margin: auto;
+  }
+}
+@media screen and (min-width: 1450px) {
+  nav {
+    background-image: url("../../public/picture/banque-image/nav-footer/BackNav-BlueResponsiveDesktop2.png");
   }
 }
 

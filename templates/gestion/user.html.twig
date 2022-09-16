@@ -1,7 +1,136 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
-
-
 {% block body %}
-    <h1>Gestion USER</h1>
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Utilisateur</h2>
+            <h3 class="littleTitle">Gestion</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+<div class="gestion">
+    <div class="responsiveGestion">
+        <div class="gestionPres">
+            <div class="gestionPresList">
+                <ul>
+                    <li><b>Votre prénom :</b> {{ user.firstName }}</li>
+                    <li><b>Votre nom :</b> {{ user.lastName }}</li>
+                    <li><b>Votre mail :</b> {{ user.email }}</li>
+                </ul>
+            </div>
+            <div class="gestionPresP">
+                <p>En tant qu'<b>Utilisateur</b>, il vous est permis de parcourir les listes des hotels et suites mis à votre disposition.
+                    Vous pourrez, à partir de ces pages, réserver une où plusieurs suites, à des dates précises.</p>
+            </div>
+        </div>
+    </div>
+<!-- Suites réservées -->
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Réservations futures</h2>
+            <h3 class="littleTitle">Suite</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="responsiveGestion">
+        <div class="gestionManagerHotel">
+            <p>Vous pouvez Annuler une réservation au maximumb  <b>72 Heures</b> avant la date d'échéance. Au dela, il faudra contacter le service
+                Administratif afin de trouver une solution!</p>
+            <img
+                    src="{{ asset('picture/banque-image/logo-icones/bed.png') }}"
+                    alt="Image de gesion manager"
+            >
+        </div>
+    </div>
+    <div class="gestionUserTableHotel">
+<!-- Projection -->
+
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">Hotel</th>
+                <th scope="col">Suite</th>
+                <th scope="col">Date début</th>
+                <th scope="col">Date fin</th>
+                <th scope="col"> Annuler</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">azeazeaze</th>
+                    <td>azeazeaze</td>
+                    <td>azeazeaze</td>
+                    <td>azeazeazeeza</td>
+                    <td> Button</td>
+                </tr>
+                <tr>
+                    <th scope="row">azeazeaze</th>
+                    <td>azeazeaze</td>
+                    <td>azeazeaze</td>
+                    <td>azeazeazeeza</td>
+                    <td> Button</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<!-- Projection fin -->
+    <div class="barreHorizontaleTwo"></div>
+<!-- Suites passées -->
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Réservations passées</h2>
+            <h3 class="littleTitle">Suite</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="responsiveGestion">
+        <div class="gestionManagerHotel">
+            <img
+                    src="{{ asset('picture/banque-image/logo-icones/logo-calendar.png') }}"
+                    alt="Image de gesion manager"
+            >
+            <p>Ci-dessous, vous pouvez voir toutes les réservations qui ont été faites en votre nom, sur notre application.</p>
+
+        </div>
+    </div>
+    <!-- Projection -->
+    <div class="gestionUserTableHotel" >
+
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Hotel</th>
+            <th scope="col">Suite</th>
+            <th scope="col">Date début</th>
+            <th scope="col">Date fin</th>
+            <th scope="col"> Annuler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">azeazeaze</th>
+            <td>azeazeaze</td>
+            <td>azeazeaze</td>
+            <td>azeazeazeeza</td>
+            <td> Button</td>
+        </tr>
+        <tr>
+            <th scope="row">azeazeaze</th>
+            <td>azeazeaze</td>
+            <td>azeazeaze</td>
+            <td>azeazeazeeza</td>
+            <td> Button</td>
+        </tr>
+        <tr>
+            <th scope="row">azeazeaze</th>
+            <td>azeazeaze</td>
+            <td>azeazeaze</td>
+            <td>azeazeazeeza</td>
+            <td> Button</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+    <!-- Projection fin -->
+</div>
 {% endblock %}

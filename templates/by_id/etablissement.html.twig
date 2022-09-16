@@ -72,7 +72,13 @@
             </div>
         </div>
         <div class="customHotelSuitesList">
-            <h4>{{ suites.name }}</h4>
+            <h4><a href="">
+                    <h4><a href="{{ path('app_suite', { 'id' : suites.id }) }}">
+                            {{ suites.name }}
+                        </a>
+                    </h4>
+                </a>
+            </h4><br>
             <h5>Description :</h5>
                 <p>{{ suites.description |u.truncate(100) }}</p>
             <h5>Prix :</h5>

@@ -18,7 +18,7 @@ class SuiteController extends AbstractController
         $pictureList = $doctrine->getRepository(PictureList::class)->findAll();
 
         return $this->render('by_id/suite.html.twig', [
-            'title' => 'TITRE SUITE ID  Hypnos - ',
+            'title' => 'Hypnos - Suite',
             'suite' => $suite,
             'pictureList' => $pictureList,
 

@@ -16,7 +16,9 @@
                 {{ form_row(form.last_name, { 'label' : 'Prénom: '}) }}
                 {{ form_row(form.reason, { 'label' : 'Raison de l\'envoi: '}) }}
                 {{ form_row(form.content, { 'label' : 'Description: '}) }}
-            {{ form_row(form.submit, { 'label' : 'Envoyer '}) }}
+        <div class="formSubmit" onClick="showConfirm()">
+            {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+        </div>
             {{ form_end(form) }}
     </div>
 {% endblock %}

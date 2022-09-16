@@ -16,7 +16,9 @@
             {{ form_row(form.description, { 'label' : 'Descritpion/Atouts: '}) }}
             {{ form_row(form.picture, { 'label' : 'Image principale: '}) }}
             {{ form_row(form.hotel, { 'label' : 'Hotel possédant la suite: '}) }}
-        {{ form_row(form.submit, { 'label' : 'Envoyer'}) }}
+            <div class="formSubmit" onClick="showConfirm()">
+                {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+            </div>
         {{ form_row(form._token) }}
     </div>
     <div class="buttonAdterForm" style="margin-left: 60%; margin-bottom: 10%;">
