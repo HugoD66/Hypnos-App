@@ -13,7 +13,6 @@
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/asset": "6.1.*",
         "symfony/console": "6.1.*",
-        "symfony/dotenv": "6.1.*",
         "symfony/flex": "^2",
         "symfony/form": "6.1.*",
         "symfony/framework-bundle": "6.1.*",
@@ -36,7 +35,8 @@
     "require-dev": {
         "symfony/maker-bundle": "^1.45",
         "symfony/stopwatch": "6.1.*",
-        "symfony/web-profiler-bundle": "6.1.*"
+        "symfony/web-profiler-bundle": "6.1.*",
+        "symfony/dotenv": "6.1.*"
     },
     "config": {
         "allow-plugins": {
@@ -80,6 +80,9 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "compile": [
+            "php bin/console doctrine:migrations:migrate"
         ]
     },
     "conflict": {
