@@ -14,7 +14,7 @@ Sécurité
 BUNDLES :
 
     Mit:
-
+        requirements checker
         Annotation
         Twig
         Form
