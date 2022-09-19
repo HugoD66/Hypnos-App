@@ -267,7 +267,6 @@ footer {
   }
   h4 {
     width: 100%;
-    background-color: white;
     position: relative;
     z-index: +1;
   }
@@ -477,7 +476,7 @@ footer {
   .hotel {
     h4 {
       margin: 10% auto;
-      text-align: center;
+      text-align: start;
     }
   }
   .galerieManager {
@@ -691,10 +690,21 @@ footer {
     }
   }
   .buttonSuccess {
-    margin: 5%;
+    margin: 4% 5%;
+
     button {
       margin-top: 6%;
     }
+  }
+}
+.listButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+  button {
+    margin: auto;
   }
 }
 .titleCustom {
@@ -1075,7 +1085,7 @@ h5 {
 
 }        //Custom Suites de l'Hotels(ID)//
 .backPic {
-  background-image: url('../../public/picture/banque-image/nav-footer/test-back.png');
+  background-image: url('../../public/picture/banque-image/back/responsiveBackFooter2.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -1128,7 +1138,9 @@ h5 {
   }
 }     // Media Query (mobileFirst)//
 @media screen and (min-width: 1280px) {
-
+  .listButtons {
+    width: 70%;
+  }
   .responsiveGestion {
     width: 80%;
     margin: auto;

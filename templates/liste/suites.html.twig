@@ -27,6 +27,27 @@
         </div>
         <div class="customListeSuitePicButton">
             <img class="" src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}" alt="Image de l'hotel">
+        </div>
+
+        </div>
+        <div class="listButtons">
+            {% if app.user %}
+                <button type="button" class="buttonAcceuil">
+                    <a
+                            href="{{ path('app_booking') }}"
+                            class="card-link">
+                        Réserver
+                    </a>
+                </button>
+            {% else %}
+                <button type="button" class="buttonAcceuil">
+                    <a
+                            href="{{ path('app_redirect_booking') }}"
+                            class="card-link">
+                        Réserver
+                    </a>
+                </button>
+            {% endif %}
             <button type="button" class="buttonAcceuil">
                 <a
                         href="{{ path('app_suite', { 'id' : suite.id}) }}"
@@ -34,8 +55,7 @@
                     Accès à la suite
                 </a>
             </button>
-        </div>
-        </div>
+        </div><br>
     <div class="barreHorizontaleTwo"></div>
     {% endfor %}
 {% endblock %}

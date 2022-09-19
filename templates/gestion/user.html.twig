@@ -13,9 +13,9 @@
         <div class="gestionPres">
             <div class="gestionPresList">
                 <ul>
-                    <li><b>Votre prénom :</b> {{ user.firstName }}</li>
-                    <li><b>Votre nom :</b> {{ user.lastName }}</li>
-                    <li><b>Votre mail :</b> {{ user.email }}</li>
+                    <li><b>Votre prénom :</b> {{ utilisateur.firstName }}</li>
+                    <li><b>Votre nom :</b> {{ utilisateur.lastName }}</li>
+                    <li><b>Votre mail :</b> {{ utilisateur.email }}</li>
                 </ul>
             </div>
             <div class="gestionPresP">
@@ -44,32 +44,38 @@
     </div>
     <div class="gestionUserTableHotel">
 <!-- Projection -->
-
         <table class="table">
             <thead class="thead-dark">
             <tr>
-                <th scope="col">Hotel</th>
                 <th scope="col">Suite</th>
+                <th scope="col">Fait le</th>
                 <th scope="col">Date début</th>
                 <th scope="col">Date fin</th>
                 <th scope="col"> Annuler</th>
             </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">azeazeaze</th>
-                    <td>azeazeaze</td>
-                    <td>azeazeaze</td>
-                    <td>azeazeazeeza</td>
-                    <td> Button</td>
-                </tr>
-                <tr>
-                    <th scope="row">azeazeaze</th>
-                    <td>azeazeaze</td>
-                    <td>azeazeaze</td>
-                    <td>azeazeazeeza</td>
-                    <td> Button</td>
-                </tr>
+                {% for bookings in booking %}
+                    {% if utilisateur.id == bookings.client.id %}
+                    {% if bookings.isActive == 1  %}
+                    <tr>
+                        <th scope="row">{{ bookings.suite }}</th>
+                        <td>{{ bookings.didAt|date('d-m-Y') }}</td>
+                        <td>{{ bookings.startDate|date('d-m-Y') }}</td>
+                        <td>{{ bookings.endDate|date('d-m-Y') }}</td>
+                        <td>
+  <!-- Change button ISACTIVE  = 0 -->
+                            <button type="button" class="buttonSendForm">
+                                <a href="{{ path('app_update_booking', { 'id' : bookings.id}) }}">
+                                    Modifier
+                                </a>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endif %}
+                {% endfor %}
+
             </tbody>
         </table>
     </div>
@@ -78,7 +84,7 @@
 <!-- Suites passées -->
     <div class="titleCustom">
         <div class="tittleList">
-            <h2 class="title">Réservations passées</h2>
+            <h2 class="title">Réservations annulées</h2>
             <h3 class="littleTitle">Suite</h3>
         </div>
         <div class="barreHorizontale"></div>
@@ -89,7 +95,7 @@
                     src="{{ asset('picture/banque-image/logo-icones/logo-calendar.png') }}"
                     alt="Image de gesion manager"
             >
-            <p>Ci-dessous, vous pouvez voir toutes les réservations qui ont été faites en votre nom, sur notre application.</p>
+            <p>Ci-dessous, vous pouvez voir toutes les réservations qui ont annulées.</p>
 
         </div>
     </div>
@@ -99,38 +105,39 @@
     <table class="table">
         <thead class="thead-dark">
         <tr>
-            <th scope="col">Hotel</th>
             <th scope="col">Suite</th>
+            <th scope="col">Fait le</th>
             <th scope="col">Date début</th>
             <th scope="col">Date fin</th>
-            <th scope="col"> Annuler</th>
+            <th scope="col"> Supprimer</th>
         </tr>
         </thead>
         <tbody>
+
+        {% for bookings in booking %}
+        {% if utilisateur.id == bookings.client.id %}
+        {% if bookings.isActive == 0  %}
         <tr>
-            <th scope="row">azeazeaze</th>
-            <td>azeazeaze</td>
-            <td>azeazeaze</td>
-            <td>azeazeazeeza</td>
-            <td> Button</td>
+            <th scope="row">{{ bookings.suite }}</th>
+            <td>{{ bookings.didAt|date('d-m-Y') }}</td>
+            <td>{{ bookings.startDate|date('d-m-Y') }}</td>
+            <td>{{ bookings.endDate|date('d-m-Y') }}</td>
+            <td>
+                <button type="button" class="buttonSendForm">
+                    <a href="{{ path('delete_form_booking', { 'id' : bookings.id}) }}" onclick="return confirm('Etes vous sûre de supprimer ce voyage?  ')">
+                        Supprimer
+                    </a>
+                </button>
+            </td>
         </tr>
-        <tr>
-            <th scope="row">azeazeaze</th>
-            <td>azeazeaze</td>
-            <td>azeazeaze</td>
-            <td>azeazeazeeza</td>
-            <td> Button</td>
-        </tr>
-        <tr>
-            <th scope="row">azeazeaze</th>
-            <td>azeazeaze</td>
-            <td>azeazeaze</td>
-            <td>azeazeazeeza</td>
-            <td> Button</td>
-        </tr>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
         </tbody>
     </table>
 </div>
     <!-- Projection fin -->
+
+
 </div>
 {% endblock %}

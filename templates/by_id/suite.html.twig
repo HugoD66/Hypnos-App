@@ -41,14 +41,12 @@
                             {% elseif is_granted('ROLE_MANAGER') %}
                                 <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suite.id}) }}">Modifier</a></button>
                             {% elseif is_granted('ROLE_USER') %}
-                                <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
+                                <button type="button" class="buttonAcceuil"><a href="{{ path('app_booking') }}">Réserver</a></button>
                             {% endif %}
                         {% else %}
-                            <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
-
+                            <button type="button" class="buttonAcceuil"><a href="{{ path('app_redirect_booking') }}">Réserver</a></button>
                         {% endif %}
                         <button type="button" class="buttonAcceuil"><a href="{{ path('app_contact_us') }}">En savoir plus</a></button>
-
                     </div>
                 </div>
             </div>

@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Modification</h2>
+            <h3 class="littleTitle">Réservation</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="customFormPic">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.start_date, { 'label' : 'Dates de début :'}) }}
+        {{ form_row(form.end_date, { 'label' : 'Dates de fin :'}) }}
+        <div class="checkbox ">
+            {{ form_row(form.isActive, { 'label' : 'Conserver voyage ?'}) }}
+        </div><br>
+        {{ form_row(form.submit, { 'label' : 'Modifier'}) }}
+
+        {{ form_end(form) }}
+
+    </div>
+    <div class="buttonAdterForm" style="margin-left: 60%; margin-bottom: 10%;">
+        <button type="button" class="buttonAcceuil">
+            <a href="{{ path('app_user_gestion', { 'id' : app.user.id}) }}">
+                Retour au compte
+            </a>
+        </button>
+    </div>
+{% endblock %}

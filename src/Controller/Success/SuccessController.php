@@ -2,6 +2,8 @@
 
 namespace App\Controller\Success;
 
+use App\Entity\User;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -78,6 +80,21 @@ class SuccessController extends AbstractController
     {
         return $this->render('success/success_update_hotel.html.twig', [
             'title' => 'Hypnos - Succés Modification Hotel',
+        ]);
+    }
+
+    #[Route('/annultation-voyage', name: 'app_annul_voyage')]
+    public function removeSuite(): Response
+    {
+        return $this->render('success/success_annul_suite.html.twig', [
+            'title' => 'Hypnos - Succés annulation Suite',
+        ]);
+    }
+    #[Route('/update-booking', name: 'app_success_update_booking')]
+    public function updateBooking(): Response
+    {
+        return $this->render('success/success_update_booking.html.twig', [
+            'title' => 'Hypnos - Succés Modification Réservation',
         ]);
     }
 

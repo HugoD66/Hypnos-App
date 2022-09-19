@@ -2,6 +2,7 @@
 
 namespace App\Controller\Gestion;
 
+use App\Entity\Booking;
 use App\Entity\ContactUs;
 use App\Entity\Hotel;
 use App\Entity\Manager;
@@ -9,6 +10,7 @@ use App\Entity\PictureList;
 use App\Entity\Suite;
 use App\Form\ManagerType;
 use App\Form\PictureListType;
+use App\Form\UpdateBookingType;
 use App\Form\UpdateHotelType;
 use App\Form\UpdateManagerType;
 use App\Form\UpdatePictureListType;
@@ -137,6 +139,42 @@ class UpdateController extends AbstractController
 
         }
         return $this->render('update/update_hotel.html.twig', [
+            'title' => 'Hypnos - Modification d\'un hotel',
+            'form' => $form->createView(),
+            'user' => $user,
+        ]);
+    }
+
+// Update BOOKING
+
+    #[Route('/user/update-booking/{id}', name: 'app_update_booking')]
+    public function updateBooking(ManagerRegistry $doctrine,
+                                int $id,
+                                EntityManagerInterface $entityManager,
+                                Request $request,
+                                SluggerInterface $slugger) : Response
+    {
+        $user = $this->getUser();
+
+        $entityManager = $doctrine->getManager();
+
+
+        $booking = $doctrine->getRepository(Booking::class)->find($id);
+
+        $form = $this->createForm(UpdateBookingType::class, $booking);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $booking = $form->getData();
+//Push
+            $entityManager->persist($booking);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('app_success_update_booking');
+
+        }
+        return $this->render('update/update_booking.html.twig', [
             'title' => 'Hypnos - Modification d\'un hotel',
             'form' => $form->createView(),
             'user' => $user,

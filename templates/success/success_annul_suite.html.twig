@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Suite annulation</h2>
+            <h3 class="littleTitle">Succés</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+    <div class="successOne">
+        <div class="explainSuccess">
+            <h2>Vous avez annulé la réservation de votre suite.</h2>
+            <p>Vous pouvez dès à présent vérifier sur votre compte que votre voyage a bien été annulé. </p>
+        </div>
+        <div class="buttonSuccess">
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_liste_etablissement') }}">Liste des hotels</a></button>
+            <button type="button" class="buttonAcceuil"><a href="{{ path('app_home') }}">Retour Acceuil</a></button>
+        </div>
+    </div>
+{% endblock %}

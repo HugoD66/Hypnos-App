@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+    <div class="titleCustom">
+        <div class="tittleList">
+            <h2 class="title">Réservation</h2>
+            <h3 class="littleTitle">Suite</h3>
+        </div>
+        <div class="barreHorizontale"></div>
+    </div>
+
+<div class="customFormpic2">
+    {{ form(form) }}
+    <script>
+        $(document).ready(function() {
+            // you may need to change this code if you are not using Bootstrap Datepicker
+            $('.js-datepicker').datepicker({
+                format: 'yyyy-mm-dd'
+            });
+        });
+    </script>
+</div>
+{% endblock %}

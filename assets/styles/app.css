@@ -23826,7 +23826,6 @@ footer .returnTop img {
 }
 .roomId h4, .roomId .h4 {
   width: 100%;
-  background-color: white;
   position: relative;
   z-index: 1;
 }
@@ -24026,7 +24025,7 @@ footer .returnTop img {
 }
 .gestion .hotel h4, .gestion .hotel .h4 {
   margin: 10% auto;
-  text-align: center;
+  text-align: start;
 }
 .gestion .galerieManager .galerieManagerList {
   display: flex;
@@ -24236,10 +24235,21 @@ footer .returnTop img {
   font-family: Oswald, sans-serif;
 }
 .successTwo .buttonSuccess {
-  margin: 5%;
+  margin: 4% 5%;
 }
 .successTwo .buttonSuccess button {
   margin-top: 6%;
+}
+
+.listButtons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+.listButtons button {
+  margin: auto;
 }
 
 .titleCustom {
@@ -24621,7 +24631,7 @@ h5, .h5 {
 }
 
 .backPic {
-  background-image: url("../../public/picture/banque-image/nav-footer/test-back.png");
+  background-image: url("../../public/picture/banque-image/back/responsiveBackFooter2.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -24675,6 +24685,10 @@ h5, .h5 {
   }
 }
 @media screen and (min-width: 1280px) {
+  .listButtons {
+    width: 70%;
+  }
+
   .responsiveGestion {
     width: 80%;
     margin: auto;

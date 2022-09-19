@@ -1,29 +1,14 @@
 Faire:
 
-Entitée Booking + relations + Page Zoning
-redirect si acces denied
-
-
+mettre intervale entre les 2 pour pas pouvoir reserver si deja mis
+mettre isActive, si pas active, mettre dans réservation annulées.
 
 Wireframes
 
-    form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
-    bug sur updateHotel( file)
+form SuiteType => Manager peut selectionner seulement SON hotel ( via controller avant getData ? )
+bug sur updateHotel( file)
 
-
-
-
-A VOIR ??????
-
-    Modal pour annulation reservation ?
-
-
-
-protection pour hotel ( seulement admin):
-            # - { path: ^/gestionhoteltadadi, roles: ROLE_ADMIN }
-                et avec twig {{ if app.user.admin chépakoi }}
-
-
+Sécurité
 
 
 BUNDLES :
