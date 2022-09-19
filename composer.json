@@ -32,7 +32,7 @@
         "twig/string-extra": "^3.4",
         "twig/twig": "^2.12|^3.0"
     },
-    "require-dev": {
+    "require-dev --no-dev": {
         "symfony/maker-bundle": "^1.45",
         "symfony/stopwatch": "6.1.*",
         "symfony/web-profiler-bundle": "6.1.*",

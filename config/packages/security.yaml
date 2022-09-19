@@ -40,10 +40,19 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/booking, roles: ROLE_USER }
+        - { path: ^/user, roles: ROLE_USER }
         - { path: ^/add-picture-list, roles: ROLE_MANAGER}
         - { path: ^/success-change-password, roles: ROLE_MANAGER}
-        # - { path: ^/admin, roles: ROLE_ADMIN }
-        # - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/manager, roles: ROLE_MANAGER}
+        - { path: ^/manager, roles: ROLE_MANAGER}
+        - { path: ^/remove, roles: ROLE_MANAGER}
+        - { path: ^/add-suite, roles: ROLE_ADMIN}
+        - { path: ^/admin, roles: ROLE_ADMIN}
+        - { path: ^/add-manager, roles: ROLE_ADMIN}
+        - { path: ^/add-hotel, roles: ROLE_ADMIN}
+
+
 
 when@test:
     security:
