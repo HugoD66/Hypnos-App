@@ -24,7 +24,6 @@ class ListeSuitesController extends AbstractController
         $form = $this -> createForm(Suite::class, $data);
         $form->handleRequest($request);
 
-        $suite = $repository->findSearch($data);
 
         return $this->render('liste/suites.html.twig', [
             'title' => 'Hypnos - Liste des suites',

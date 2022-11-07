@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Suite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
@@ -37,18 +38,6 @@ class SuiteRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
-    }
-
-    /**
-     * Récupère les produits en lien avec une recherche
-     * @return \Doctrine\ORM\QueryBuilder
-     */
-    public function findSearch( $search)
-    {
-        return $this->createQueryBuilder('q')
-                ->select('q', 'name')
-                ->join('name', $search->name);
-
     }
 
 
