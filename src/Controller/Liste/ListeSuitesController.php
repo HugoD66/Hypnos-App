@@ -19,17 +19,10 @@ class ListeSuitesController extends AbstractController
         $suites = $doctrine->getRepository(Suite::class)->findAll();
 
 
-        $data = new Suite();
-        $data->getName();
-        $form = $this -> createForm(Suite::class, $data);
-        $form->handleRequest($request);
-
 
         return $this->render('liste/suites.html.twig', [
             'title' => 'Hypnos - Liste des suites',
             'suites' => $suites,
-            'suite' => $suite,
-            'form' => $form->createView()
         ]);
     }
 }
