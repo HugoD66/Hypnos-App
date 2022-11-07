@@ -16,13 +16,13 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
-<!-- Hotel ID -->
+    <!-- Hotel ID -->
     <div class="hotelId">
         <div class="backHotelId">
             <div class="customHotelId">
                 <img class="" src="{{ asset('picture/recipe-picture/' ~ hotel.getImage()) }}" alt="Image de l'hotel">
             </div>
-                <h3>{{ hotel.name }}</h3>
+            <h3>{{ hotel.name }}</h3>
             <div class="customHotelIdExplain">
                 <div class="customHotelIdExplain1">
                     <h4>Description: </h4>
@@ -35,17 +35,17 @@
                     <p>{{ hotel.manager }}</p>
                 </div>
                 <div class="customHotelIdExplain2">
-                {% for suites in suite %}
-                    {% if hotel.id == suites.hotel.id %}
-                        <img class="" src="{{ asset('picture/recipe-picture/' ~ suites.picture) }}" alt="Image de l'hotel">
-                    {% else %}
-                    {% endif %}
-                {% endfor %}
+                    {% for suites in suite %}
+                        {% if hotel.id == suites.hotel.id %}
+                            <img class="" src="{{ asset('picture/recipe-picture/' ~ suites.picture) }}" alt="Image de l'hotel">
+                        {% else %}
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
-<!-- Ses Suites -->
+    <!-- Ses Suites -->
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Ses suites</h2>
@@ -55,53 +55,53 @@
     </div>
     {% for suites in suite %}
         {% if hotel.id == suites.hotel.id %}
-    <div class="customHotelSuites">
-        <div class="customHotelSuitesPictures">
-            <div class="customHotelSuitesPicture">
-                <img class="" src="{{ asset('picture/recipe-picture/' ~ suites.picture) }}" alt="Image de la chambre">
-            </div>
-            <div class="customHotelelSuitesPictureList">
-                {% for pictureLists in pictureList %}
-                    {% if suites.id == pictureLists.suite.id %}
-                        <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picOne) }}" alt="Galerie image chambre">
-                        <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picTwo) }}" alt="Galerie image chambre">
-                        <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picThree) }}" alt="Galerie image chambre">
-                    {% else %}
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="customHotelSuitesList">
-            <h4><a href="">
-                    <h4><a href="{{ path('app_suite', { 'id' : suites.id }) }}">
-                            {{ suites.name }}
+            <div class="customHotelSuites">
+                <div class="customHotelSuitesPictures">
+                    <div class="customHotelSuitesPicture">
+                        <img class="" src="{{ asset('picture/recipe-picture/' ~ suites.picture) }}" alt="Image de la chambre">
+                    </div>
+                    <div class="customHotelelSuitesPictureList">
+                        {% for pictureLists in pictureList %}
+                            {% if suites.id == pictureLists.suite.id %}
+                                <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picOne) }}" alt="Galerie image chambre">
+                                <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picTwo) }}" alt="Galerie image chambre">
+                                <img class="" src="{{ asset('picture/recipe-picture/' ~ pictureLists.picThree) }}" alt="Galerie image chambre">
+                            {% else %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="customHotelSuitesList">
+                    <h4><a href="">
+                            <h4><a href="{{ path('app_suite', { 'id' : suites.id }) }}">
+                                    {{ suites.name }}
+                                </a>
+                            </h4>
                         </a>
-                    </h4>
-                </a>
-            </h4><br>
-            <h5>Description :</h5>
-                <p>{{ suites.description |u.truncate(100) }}</p>
-            <h5>Prix :</h5>
-                <p>{{ suites.price }} €/Nuit</p>
-            <h5>Propriétaire :</h5>
-                <p>{{ suites.manager }}</p>
-        </div>
-    </div>
-        <div class="customHotelButton">
-            {% if app.user %}
-                {%  if is_granted('ROLE_ADMIN') %}
-                {% elseif is_granted('ROLE_MANAGER') %}
-                    <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suites.id}) }}">Modifier</a></button>
-                {% elseif is_granted('ROLE_USER') %}
-                    <button type="button" class="buttonAcceuil"><a href="{{ path('app_booking') }}">Reserver</a></button>
+                    </h4><br>
+                    <h5>Description :</h5>
+                    <p>{{ suites.description |u.truncate(100) }}</p>
+                    <h5>Prix :</h5>
+                    <p>{{ suites.price }} €/Nuit</p>
+                    <h5>Propriétaire :</h5>
+                    <p>{{ suites.manager }}</p>
+                </div>
+            </div>
+            <div class="customHotelButton">
+                {% if app.user %}
+                    {%  if is_granted('ROLE_ADMIN') %}
+                    {% elseif is_granted('ROLE_MANAGER') %}
+                        <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suites.id}) }}">Modifier</a></button>
+                    {% elseif is_granted('ROLE_USER') %}
+                        <button type="button" class="buttonAcceuil"><a href="{{ path('app_booking') }}">Reserver</a></button>
+                    {% endif %}
+                {% else %}
+                    <button type="button" class="buttonAcceuil"><a href="{{ path('app_redirect_booking') }}">Reserver</a></button>
                 {% endif %}
-            {% else %}
-                <button type="button" class="buttonAcceuil"><a href="{{ path('app_redirect_booking') }}">Reserver</a></button>
-            {% endif %}
-            <button type="button" class="buttonAcceuil"><a href="{{ path('app_suite', { 'id' : suites.id}) }}">En savoir plus</a></button>
-        </div>
-    <div class="barreHorizontaleTwo"></div>
-    {% else %}
-    {% endif %}
-{% endfor %}
+                <button type="button" class="buttonAcceuil"><a href="{{ path('app_suite', { 'id' : suites.id}) }}">En savoir plus</a></button>
+            </div>
+            <div class="barreHorizontaleTwo"></div>
+        {% else %}
+        {% endif %}
+    {% endfor %}
 {% endblock %}

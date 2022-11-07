@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
+
     <button type="button" class="buttonAcceuil" style=" float: right;
                                                                 margin-top: 2%;
                                                                 margin-bottom: 10%;
@@ -16,25 +17,24 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
-<!-- Suite ID -->
+    <!-- Suite ID -->
     <div class="backHotelId">
-    <div class="roomId">
+        <div class="roomId">
             <img src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}"  alt="Image principale de la suite">
             <div class="suiteIdDesc">
                 <h4>{{ suite.hotel }}</h4>
                 <div class="suiteIdDescListButton">
                     <div class="suiteIdDescList">
                         <h5>Nom de la suite: </h5>
-                            <p> {{ suite.name }}</p>
+                        <p> {{ suite.name }}</p>
                         <h5>Propriétaire:</h5>
-                            <p>{{ suite.manager }}</p>
+                        <p>{{ suite.manager }}</p>
                         <h5>Prix à la nuit :</h5>
-                            <p>{{ suite.price }}€/Nuit</p>
+                        <p>{{ suite.price }}€/Nuit</p>
                         <h5>Description: </h5>
-                            <p>{{ suite.description }}</p>
+                        <p>{{ suite.description }}</p>
                     </div>
                     <div class="suiteIdDescButton">
-
                         {% if app.user %}
                             {%  if is_granted('ROLE_ADMIN') %}
                                 <button type="button" class="buttonAcceuil"><a href="{{ path('app_update_suite', { 'id' : suite.id}) }}">Modifier</a></button>
@@ -60,10 +60,6 @@
                     {% endif %}
                 {% endfor %}
             </div>
-
-
-
-
         </div>
     </div>
 {% endblock %}

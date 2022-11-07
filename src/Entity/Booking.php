@@ -21,12 +21,14 @@ class Booking
 
 
 
-    #[Assert\GreaterThan("today",  message: "La date d'arrivée doit être ultérieur à la date d'aujourd'hui")]
+    #[Assert\GreaterThan("today",
+                        message: "La date d'arrivée doit être ultérieur à la date d'aujourd'hui")]
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $start_date = null;
 
     #[ORM\Column(type: Types::DATE_MUTABLE)]
-    #[Assert\GreaterThan(propertyPath: "start_date", message: "La date de départ doit être plus éloignée que la date d'arrivée !")]
+    #[Assert\GreaterThan(propertyPath: "start_date",
+                        message: "La date de départ doit être plus éloignée que la date d'arrivée !")]
     private ?\DateTimeInterface $end_date = null;
 
     #[ORM\ManyToOne(inversedBy: 'bookings')]

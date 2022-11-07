@@ -54,7 +54,6 @@
                     {% endif %}
         <!--Mon compte-->
                     {% if app.user %}
-
                         {%  if is_granted('ROLE_ADMIN') %}
                             <button type="button" class="buttonNav"><a href="{{ path('app_admin_gestion', { 'id' : app.user.id}) }}">Mon Compte</a></button>
                         {% elseif is_granted('ROLE_MANAGER') %}

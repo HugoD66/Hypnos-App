@@ -39,6 +39,21 @@ class SuiteRepository extends ServiceEntityRepository
         }
     }
 
+    /**
+     * Récupère les produits en lien avec une recherche
+     * @return \Doctrine\ORM\QueryBuilder
+     */
+    public function findSearch( $search)
+    {
+        return $this->createQueryBuilder('q')
+                ->select('q', 'name')
+                ->join('name', $search->name);
+
+    }
+
+
+
+
 //    /**
 //     * @return Suite[] Returns an array of Suite objects
 //     */
