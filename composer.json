@@ -19,6 +19,7 @@
         "symfony/framework-bundle": "6.1.*",
         "symfony/google-mailer": "6.1.*",
         "symfony/mailer": "6.1.*",
+        "symfony/maker-bundle": "^1.47",
         "symfony/proxy-manager-bridge": "6.1.*",
         "symfony/requirements-checker": "^2.0",
         "symfony/runtime": "6.1.*",
@@ -94,8 +95,5 @@
             "allow-contrib": false,
             "require": "6.1.*"
         }
-    },
-    "require-dev": {
-        "symfony/maker-bundle": "^1.47"
     }
 }
