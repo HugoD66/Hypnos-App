@@ -2,8 +2,9 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
 
+
     <input type="text" name="name" id="name_id"
-    onkeyup="{{ suite.hotel }}" >
+    onkeyup="JsClientSearchRecette{{ suite.hotel }}.this" >
 
 
 
@@ -15,56 +16,110 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
-    {% for suite in suites %}
-        <div class="customListe">
-        <div class="customListeSuiteDesc">
-            <h4> •{{ suite.name }}</h4>
-            <h5><b>Hotel</b> :</h5>
-            <p>
-                {{ suite.hotel }}
-            </p>
-            <h5><b>Prix</b> :</h5>
-            <p>
-                {{ suite.price }}€/Nuit
-            </p>
-            <h5><b>Description</b> :</h5>
-            <p>
-                {{ suite.description |u.truncate(100) }}
-            </p>
-        </div>
-        <div class="customListeSuitePicButton">
-            <img class="" src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}" alt="Image de l'hotel">
-        </div>
 
+    {% for suite in suites %}
+        <div class="test">
+
+
+            <div class="customListe">
+                <div class="customListeSuiteDesc">
+                    <h4> •{{ suite.name }}</h4>
+                    <h5><b>Hotel</b> :</h5>
+                    <p>
+                        {{ suite.hotel }}
+                    </p>
+                    <h5><b>Prix</b> :</h5>
+                    <p>
+                        {{ suite.price }}€/Nuit
+                    </p>
+                    <h5><b>Description</b> :</h5>
+                    <p>
+                        {{ suite.description |u.truncate(100) }}
+                    </p>
+                </div>
+                <div class="customListeSuitePicButton">
+                    <img class="" src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}" alt="Image de l'hotel">
+                </div>
+
+            </div>
+            <div class="listButtons">
+                {% if app.user %}
+                    <button type="button" class="buttonAcceuil">
+                        <a
+                                href="{{ path('app_booking') }}"
+                                class="card-link">
+                            Réserver
+                        </a>
+                    </button>
+                {% else %}
+                    <button type="button" class="buttonAcceuil">
+                        <a
+                                href="{{ path('app_redirect_booking') }}"
+                                class="card-link">
+                            Réserver
+                        </a>
+                    </button>
+                {% endif %}
+                <button type="button" class="buttonAcceuil">
+                    <a
+                            href="{{ path('app_suite', { 'id' : suite.id}) }}"
+                            class="card-link">
+                        Accès à la suite
+                    </a>
+                </button>
+            </div><br>
+        <div class="barreHorizontaleTwo"></div>
         </div>
-        <div class="listButtons">
-            {% if app.user %}
-                <button type="button" class="buttonAcceuil">
-                    <a
-                            href="{{ path('app_booking') }}"
-                            class="card-link">
-                        Réserver
-                    </a>
-                </button>
-            {% else %}
-                <button type="button" class="buttonAcceuil">
-                    <a
-                            href="{{ path('app_redirect_booking') }}"
-                            class="card-link">
-                        Réserver
-                    </a>
-                </button>
-            {% endif %}
-            <button type="button" class="buttonAcceuil">
-                <a
-                        href="{{ path('app_suite', { 'id' : suite.id}) }}"
-                        class="card-link">
-                    Accès à la suite
-                </a>
-            </button>
-        </div><br>
-    <div class="barreHorizontaleTwo"></div>
     {% endfor %}
 {% endblock %}
 
+
+<script>
+
+    function fCreateAjax() {
+        var xhr_object = null;
+        if (window.XMLHttpRequest) {
+            xhr_object = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            try {
+                xhr_object = new ActiveXObject("Msxml2.XMLHTTP");
+            } catch (e) {
+                try {
+                    xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+                } catch (e) {
+                    alert("XHR not created");
+                }
+            }
+        }
+        return xhr_object;
+    }
+
+
+
+    function JsClientSearchRecette(psClientId, pObjRecette) {
+        let sInnerHTML = fGetFile("suite.html.twig=".value);
+        document.getElementById("test").innerHTML = sInnerHTML;
+    };
+
+
+
+    function fGetFile(psFile) {
+        let xhr_object = fCreateAjax();
+        if (xhr_object != null) {
+            xhr_object.open("GET", psFile, false);
+            xhr_object.send(null);
+            if (xhr_object.readyState === 4) {
+                return (xhr_object.responseText);
+            }
+            else {
+                return ("");
+            }
+        }
+    };
+
+
+
+
+
+</script>
 
