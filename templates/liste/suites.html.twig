@@ -1,11 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-
-
-    <input type="text" name="name" id="name_id"
-    onkeyup="JsClientSearchRecette" >
-
     <div class="wrapper">
         <div class="search-input" >
             <input id="search"
@@ -39,8 +34,6 @@
 
     {% for suite in suites %}
         <div class="test">
-
-
             <div class="customListe">
                 <div class="customListeSuiteDesc">
                     <h4> •{{ suite.name }}</h4>
@@ -60,7 +53,6 @@
                 <div class="customListeSuitePicButton">
                     <img class="" src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}" alt="Image de l'hotel">
                 </div>
-
             </div>
             <div class="listButtons">
                 {% if app.user %}
