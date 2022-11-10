@@ -1,6 +1,10 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
+
+    <div {{ react_component('MyComponent', { 'fullName': app.user.fullName }) }}></div>
+
+
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Toutes nos Suites</h2>
