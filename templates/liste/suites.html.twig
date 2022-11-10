@@ -6,7 +6,27 @@
     <input type="text" name="name" id="name_id"
     onkeyup="JsClientSearchRecette" >
 
-
+    <div class="wrapper">
+        <div class="search-input" >
+            <input id="search"
+                   type="search"
+                   name="q"
+                   class="form-control"
+                   placeholder="Entrez pour rechercher...">
+            <div class="autocom-box">
+                {% for suite in suites %}
+                    <li>
+                        {{ suite.hotel }}
+                    </li>
+                {% endfor %}
+            </div>
+            <div class="icon" >
+                <button type="button" value="Submit">
+                    <a href="">
+                    </a></button>
+            </div>
+        </div>
+    </div>
 
 
     <div class="titleCustom">
@@ -73,48 +93,51 @@
     {% endfor %}
 {% endblock %}
 
-
 <script>
+    const searchWrapper = document.querySelector(".search-input");
+    const inputBox = searchWrapper.querySelector("input");
+    const suggBox = searchWrapper.querySelector(".autocom-box");
+    const suggestions = [     {% for suite in suites %} "{{ suite.hotel }}" , {% endfor %} ];
 
-    function fCreateAjax() {
-        let xhr_object = null;
-        if (window.XMLHttpRequest) {
-            xhr_object = new XMLHttpRequest();
-        } else if (window.ActiveXObject) {
-            try {
-                xhr_object = new ActiveXObject("Msxml2.XML HTTP");
-            } catch (e) {
-                try {
-                    xhr_object = new ActiveXObject("Microsoft.XML HTTP");
-                } catch (e) {
-                    alert("XHR not created");
-                }
+
+    inputBox.onkeyup = (e) => {
+        let userData = e.target.value;
+        let emptyArray = [];
+        if(userData) {
+            emptyArray = suggestions.filter((data) => {
+                return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+            });
+            emptyArray = emptyArray.map((data)=>{
+                return data = '<li>'+ data +'</li>';
+            })
+            console.log(emptyArray);
+            searchWrapper.classList.add("active");
+            showSuggestions(emptyArray)
+            let allList = suggBox.querySelectorAll("li");
+            for (let i = 0; i < allList.length; i ++) {
+                allList[i].setAttribute("onclick", "select(this)");
             }
+        } else {
+            searchWrapper.classList.remove("active");
         }
-        return xhr_object;
+
     }
 
+    function select(element) {
+        inputBox.value = element.textContent;
+        searchWrapper.classList.remove("active");
+    }
 
-
-    function JsClientSearchRecette(psClientId, pObjRecette) {
-        document.getElementById("test").innerHTML = fGetFile("suite.html.twig".value);
-    };
-
-
-
-    function fGetFile(psFile) {
-        let xhr_object = fCreateAjax();
-        if (xhr_object != null) {
-            xhr_object.open("GET", psFile, false);
-            xhr_object.send(null);
-            if (xhr_object.readyState === 4) {
-                return (xhr_object.responseText);
-            }
-            else {
-                return ("");
-            }
+    function showSuggestions(list) {
+        let listData;
+        if(!list.length) {
+            userValue = inputBox.value;
+            listData = '<li>'+ userValue +'</li>';
+        }else {
+            listData = list.join('');
         }
-    };
+        suggBox.innerHTML= listData;
+    }
 
 
 </script>

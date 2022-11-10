@@ -40,14 +40,6 @@ class SuiteRepository extends ServiceEntityRepository
         }
     }
 
-    public function searchRequest(): array
-    {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.name = :value')
-            ->orderBy('p.id', 'ASC')
-            ->getQuery()
-            ->getResult();
-    }
 
 
 //    /**

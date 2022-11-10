@@ -17,12 +17,10 @@ class ListeSuitesController extends AbstractController
     public function index(ManagerRegistry $doctrine, SuiteRepository $repository, Request $request): Response
     {
         $suites = $doctrine->getRepository(Suite::class)->findAll();
-        $searchSuite=  $doctrine->getRepository(Suite::class)->searchRequest();
 
         return $this->render('liste/suites.html.twig', [
             'title' => 'Hypnos - Liste des suites',
             'suites' => $suites,
-            'searchSuite' => $searchSuite,
         ]);
     }
 }

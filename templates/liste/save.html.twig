@@ -91,3 +91,46 @@
 {% endblock %}
 
 
+<script>
+
+    function fCreateAjax() {
+        let xhr_object = null;
+        if (window.XMLHttpRequest) {
+            xhr_object = new XMLHttpRequest();
+        } else if (window.ActiveXObject) {
+            try {
+                xhr_object = new ActiveXObject("Msxml2.XML HTTP");
+            } catch (e) {
+                try {
+                    xhr_object = new ActiveXObject("Microsoft.XML HTTP");
+                } catch (e) {
+                    alert("XHR not created");
+                }
+            }
+        }
+        return xhr_object;
+    }
+
+
+
+    function JsClientSearchRecette(psClientId, pObjRecette) {
+        document.getElementById("test").innerHTML = fGetFile("suite.html.twig".value);
+    };
+
+
+
+    function fGetFile(psFile) {
+        let xhr_object = fCreateAjax();
+        if (xhr_object != null) {
+            xhr_object.open("GET", psFile, false);
+            xhr_object.send(null);
+            if (xhr_object.readyState === 4) {
+                return (xhr_object.responseText);
+            }
+            else {
+                return ("");
+            }
+        }
+    };
+
+</script>
