@@ -2,7 +2,7 @@
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
 
-    <div {{ react_component('MyComponent', { 'fullName': app.user.fullName }) }}></div>
+    <div {{ react_component('MyComponent', { 'fullName': app.user.id }) }}></div>
 
 
     <div class="titleCustom">
