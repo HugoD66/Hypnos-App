@@ -4,7 +4,7 @@
 
 
     <input type="text" name="name" id="name_id"
-    onkeyup="JsClientSearchRecette{{ suite.hotel }}" >
+    onkeyup="JsClientSearchRecette" >
 
 
 
@@ -77,15 +77,15 @@
 <script>
 
     function fCreateAjax() {
-        var xhr_object = null;
+        let xhr_object = null;
         if (window.XMLHttpRequest) {
             xhr_object = new XMLHttpRequest();
         } else if (window.ActiveXObject) {
             try {
-                xhr_object = new ActiveXObject("Msxml2.XMLHTTP");
+                xhr_object = new ActiveXObject("Msxml2.XML HTTP");
             } catch (e) {
                 try {
-                    xhr_object = new ActiveXObject("Microsoft.XMLHTTP");
+                    xhr_object = new ActiveXObject("Microsoft.XML HTTP");
                 } catch (e) {
                     alert("XHR not created");
                 }
@@ -97,8 +97,7 @@
 
 
     function JsClientSearchRecette(psClientId, pObjRecette) {
-        let sInnerHTML = fGetFile("suite.html.twig=".value);
-        document.getElementById("test").innerHTML = sInnerHTML;
+        document.getElementById("test").innerHTML = fGetFile("suite.html.twig".value);
     };
 
 
@@ -116,9 +115,6 @@
             }
         }
     };
-
-
-
 
 
 </script>

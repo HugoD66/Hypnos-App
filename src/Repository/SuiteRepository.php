@@ -40,7 +40,7 @@ class SuiteRepository extends ServiceEntityRepository
         }
     }
 
-    public function searchRequest($value): array
+    public function searchRequest(): array
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.name = :value')
