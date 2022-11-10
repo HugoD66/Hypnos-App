@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Entity\Suite;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Collections\Expr\Value;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -13,7 +14,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Suite|null find($id, $lockMode = null, $lockVersion = null)
  * @method Suite|null findOneBy(array $criteria, array $orderBy = null)
  * @method Suite[]    findAll()
- * @method Suite[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Suite[]    findBy(value $value, array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class SuiteRepository extends ServiceEntityRepository
 {

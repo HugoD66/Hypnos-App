@@ -1,29 +1,6 @@
 {% extends 'layout.html.twig' %}
 {% block title %}{{ title }}{% endblock %}
 {% block body %}
-    <div class="wrapper">
-        <div class="search-input" >
-            <input id="search"
-                   type="search"
-                   name="q"
-                   class="form-control"
-                   placeholder="Entrez pour rechercher...">
-            <div class="autocom-box">
-                {% for suite in suites %}
-                    <li>
-                        {{ suite.hotel }}
-                    </li>
-                {% endfor %}
-            </div>
-            <div class="icon" >
-                <button type="button" value="Submit">
-                    <a href="">
-                    </a></button>
-            </div>
-        </div>
-    </div>
-
-
     <div class="titleCustom">
         <div class="tittleList">
             <h2 class="title">Toutes nos Suites</h2>
@@ -31,7 +8,6 @@
         </div>
         <div class="barreHorizontale"></div>
     </div>
-
     {% for suite in suites %}
         <div class="test">
             <div class="customListe">
@@ -84,53 +60,3 @@
         </div>
     {% endfor %}
 {% endblock %}
-
-<script>
-    const searchWrapper = document.querySelector(".search-input");
-    const inputBox = searchWrapper.querySelector("input");
-    const suggBox = searchWrapper.querySelector(".autocom-box");
-    const suggestions = [     {% for suite in suites %} "{{ suite.hotel }}" , {% endfor %} ];
-
-
-    inputBox.onkeyup = (e) => {
-        let userData = e.target.value;
-        let emptyArray = [];
-        if(userData) {
-            emptyArray = suggestions.filter((data) => {
-                return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
-            });
-            emptyArray = emptyArray.map((data)=>{
-                return data = '<li>'+ data +'</li>';
-            })
-            console.log(emptyArray);
-            searchWrapper.classList.add("active");
-            showSuggestions(emptyArray)
-            let allList = suggBox.querySelectorAll("li");
-            for (let i = 0; i < allList.length; i ++) {
-                allList[i].setAttribute("onclick", "select(this)");
-            }
-        } else {
-            searchWrapper.classList.remove("active");
-        }
-
-    }
-
-    function select(element) {
-        inputBox.value = element.textContent;
-        searchWrapper.classList.remove("active");
-    }
-
-    function showSuggestions(list) {
-        let listData;
-        if(!list.length) {
-            userValue = inputBox.value;
-            listData = '<li>'+ userValue +'</li>';
-        }else {
-            listData = list.join('');
-        }
-        suggBox.innerHTML= listData;
-    }
-
-
-</script>
-
