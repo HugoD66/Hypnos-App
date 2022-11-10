@@ -41,7 +41,18 @@ class SuiteRepository extends ServiceEntityRepository
         }
     }
 
+        /** Recuperation prodtuits SearchBAR
+         * @return Suite[]
+         */
 
+    public function findSearch(): array
+    {
+        return $this->findAll();
+    }
+    public function suiteSearch(): array
+    {
+        return $this->findAll();
+    }
 
 //    /**
 //     * @return Suite[] Returns an array of Suite objects

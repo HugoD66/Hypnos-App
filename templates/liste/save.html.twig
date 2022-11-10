@@ -1,0 +1,62 @@
+{% extends 'layout.html.twig' %}
+{% block title %}{{ title }}{% endblock %}
+{% block body %}
+<div class="titleCustom">
+  <div class="tittleList">
+    <h2 class="title">Toutes nos Suites</h2>
+    <h3 class="littleTitle">Liste</h3>
+  </div>
+  <div class="barreHorizontale"></div>
+</div>
+{% for suite in suites %}
+<div class="test">
+  <div class="customListe">
+    <div class="customListeSuiteDesc">
+      <h4> •{{ suite.name }}</h4>
+      <h5><b>Hotel</b> :</h5>
+      <p>
+        {{ suite.hotel }}
+      </p>
+      <h5><b>Prix</b> :</h5>
+      <p>
+        {{ suite.price }}€/Nuit
+      </p>
+      <h5><b>Description</b> :</h5>
+      <p>
+        {{ suite.description |u.truncate(100) }}
+      </p>
+    </div>
+    <div class="customListeSuitePicButton">
+      <img class="" src="{{ asset('picture/recipe-picture/' ~ suite.getPicture()) }}" alt="Image de l'hotel">
+    </div>
+  </div>
+  <div class="listButtons">
+    {% if app.user %}
+    <button type="button" class="buttonAcceuil">
+      <a
+              href="{{ path('app_booking') }}"
+              class="card-link">
+        Réserver
+      </a>
+    </button>
+    {% else %}
+    <button type="button" class="buttonAcceuil">
+      <a
+              href="{{ path('app_redirect_booking') }}"
+              class="card-link">
+        Réserver
+      </a>
+    </button>
+    {% endif %}
+    <button type="button" class="buttonAcceuil">
+      <a
+              href="{{ path('app_suite', { 'id' : suite.id}) }}"
+              class="card-link">
+        Accès à la suite
+      </a>
+    </button>
+  </div><br>
+  <div class="barreHorizontaleTwo"></div>
+</div>
+{% endfor %}
+{% endblock %}

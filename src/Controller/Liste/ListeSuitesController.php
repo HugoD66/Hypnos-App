@@ -2,8 +2,10 @@
 
 namespace App\Controller\Liste;
 
+use App\Data\SearchData;
 use App\Entity\Hotel;
 use App\Entity\Suite;
+use App\Form\SearchForm;
 use App\Repository\SuiteRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,9 +20,18 @@ class ListeSuitesController extends AbstractController
     {
         $suites = $doctrine->getRepository(Suite::class)->findAll();
 
+        $data = new SearchData();
+        $form = $this->createForm(SearchForm::class, $data);
+
+
+        $suiteSearch = $repository->findSearch();
+
+
         return $this->render('liste/suites.html.twig', [
             'title' => 'Hypnos - Liste des suites',
             'suites' => $suites,
+            'suiteSearch' => $suiteSearch,
+            'form' => $form->createView(),
         ]);
     }
 }
