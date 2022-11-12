@@ -41,8 +41,23 @@ class SuiteRepository extends ServiceEntityRepository
         }
     }
 
+    public function findByQuery(string $query): array
+    {
+        if (empty($query)) {
+            return [];
+        }
 
+        return $this->createQueryBuilder('b')
+            ->andWhere('b.name LIKE :query')
+            ->setParameter('query', '%'.$query.'%')
+            ->orderBy('b.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+}
 //    /**
+//      *              ->select('b.name, b.picture, b.description, b.price')
 //     * @return Suite[] Returns an array of Suite objects
 //     */
 //    public function findByExampleField($value): array
@@ -66,4 +81,4 @@ class SuiteRepository extends ServiceEntityRepository
 //            ->getOneOrNullResult()
 //        ;
 //    }
-}
+

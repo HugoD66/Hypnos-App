@@ -9,3 +9,6 @@ kernel:
 index:
     path: /
     controller: App\Controller\HomeController
+
+live_component:
+    resource: '@LiveComponentBundle/Resources/config/routing/live_component.xml'

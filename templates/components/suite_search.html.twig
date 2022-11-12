@@ -1,0 +1,24 @@
+<div{{ attributes }}>
+        <input
+                class="input-search-suite"
+                type="text"
+                data-model="query"
+                value="{{ query }}"
+                placeholder="Rechercher une suite..."
+        >
+        {% if query is empty  %}
+                {% for suite in this.AllSuites %}
+                        {{ component('suite', {
+                                id: suite.id
+                        }) }}
+                {% endfor %}
+        {% else %}
+                {% for suite in this.suites %}
+                        {{ component('suite', {
+                                'id': suite.id
+                        }) }}
+                {% endfor %}
+        {% endif %}
+</div>
+
+
