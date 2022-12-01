@@ -3,8 +3,6 @@
 namespace App\Controller\Form;
 
 use App\Entity\Booking;
-use App\Entity\Hotel;
-use App\Entity\Suite;
 use App\Form\BookingFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
@@ -20,7 +18,12 @@ class BookingController extends AbstractController
                           EntityManagerInterface $entityManager,
                           ManagerRegistry $doctrine): Response
     {
+
         $user = $this->getUser();
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
 
         $booking = new Booking();
 //Form
@@ -28,16 +31,15 @@ class BookingController extends AbstractController
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
             $datetime = new \DateTimeImmutable();
-
-
             $booking->setDidAt($datetime);
             $booking->setClient($user);
             $booking->setIsActive(true);
+
+
 //Verification dispo
             $start_date = $request->request->get('start_date');
             $end_date = $request->request->get('start_end');
-            $isPossibleBooking = $entityManager->getRepository(Booking::class)->isPossible($start_date->getStartDate(),
-                $end_date->getDateEnd());
+            $isPossibleBooking = $entityManager->getRepository(Booking::class)->isPossible($start_date, $end_date);
 
 
 //Push

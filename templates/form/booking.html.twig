@@ -14,8 +14,17 @@
     {{ form_row(form.start_date) }}
     {{ form_row(form.end_date) }}
     {{ form_row(form.suite) }}
+
+    {{ encore_entry_link_tags('datepicker') }}
+
+
     {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
     {{ form_end(form) }}
 
 </div>
+{% endblock %}
+{% block javascripts %}
+
+
+
 {% endblock %}
