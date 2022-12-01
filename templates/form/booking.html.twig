@@ -11,14 +11,19 @@
 
 <div class="customFormpic2">
     {{ form_start(form) }}
-    {{ form_row(form.start_date) }}
-    {{ form_row(form.end_date) }}
-    {{ form_row(form.suite) }}
+        {{ form_row(form.start_date) }}
+        {{ form_row(form.end_date) }}
+        {{ form_row(form.suite) }}
 
+    {{ encore_entry_link_tags('datepicker') }}
+    {{ encore_entry_link_tags('datepicker') }}
 
 
     {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
     {{ form_end(form) }}
 
 </div>
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('datepicker') }}
 {% endblock %}
