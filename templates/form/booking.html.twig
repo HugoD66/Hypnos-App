@@ -10,14 +10,12 @@
     </div>
 
 <div class="customFormpic2">
-    {{ form(form) }}
-    <script>
-        $(document).ready(function() {
-            // you may need to change this code if you are not using Bootstrap Datepicker
-            $('.js-datepicker').datepicker({
-                format: 'yyyy-mm-dd'
-            });
-        });
-    </script>
+    {{ form_start(form) }}
+    {{ form_row(form.start_date) }}
+    {{ form_row(form.end_date) }}
+    {{ form_row(form.suite) }}
+    {{ form_row(form.submit, { 'label': 'Envoyer'}) }}
+    {{ form_end(form) }}
+
 </div>
 {% endblock %}
