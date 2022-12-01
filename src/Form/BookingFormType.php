@@ -20,14 +20,17 @@ class BookingFormType extends AbstractType
             ->add('start_date', DateType::class, [
                 'widget' => 'single_text',
                 'html5' => false,
-                'format' => 'dd/MM/yyyy',
+                'format' => 'yyyy-mm-dd',
                 'attr' => ['class' => 'js-datepicker'],
             ])
             ->add('end_date', DateType::class, [
                 'widget' => 'single_text',
                 'html5' => false,
-                'format' => 'dd/MM/yyyy',
+                'format' => 'yyyy-mm-dd',
                 'attr' => ['class' => 'js-datepicker'],
+                'placeholder' => [
+                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
+                ],
             ])
             ->add('suite')
             ->add('submit', SubmitType::class, [
