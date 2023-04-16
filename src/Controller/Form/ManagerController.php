@@ -16,9 +16,9 @@ class ManagerController extends AbstractController
     #[Route('/add-manager', name: 'app_manager_create')]
     public function index(Request $request,
                           EntityManagerInterface $entityManager,
-                          UserPasswordHasherInterface $managerPasswordHasher): Response
+                          UserPasswordHasherInterface $managerPasswordHasher):
+    Response
     {
-
         $manager = new Manager();
 
         $form = $this->createForm(ManagerType::class, $manager);
@@ -34,11 +34,9 @@ class ManagerController extends AbstractController
             $manager->setRoles(array('ROLE_MANAGER'));
             $manager = $form->getData();
         //Push
-
             $entityManager->persist($manager);
             $entityManager->flush();
             return $this->redirectToRoute('app_success_add_manager');
-
         }
         return $this->render('form/manager-creation.html.twig', [
             'title' => 'Hypnos - Creation Manager',

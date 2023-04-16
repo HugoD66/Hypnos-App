@@ -21,26 +21,20 @@ class ManagerChangePasswordController extends AbstractController
                           EntityManagerInterface $entityManager,
                           int $id): Response
     {
-
         $manager = $doctrine->getRepository(Manager::class)->find($id);
         $form = $this->createForm(ChangePasswordType::class, $manager);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
             $manager->setPassword(
                 $userPasswordHasher->hashPassword(
                     $manager,
                     $form->get('plainPassword')->getData()
                 )
             );
-
-
             $entityManager->persist($manager);
             $entityManager->flush();
-
             return $this->redirectToRoute('app_success_change_password');
-
         }
         return $this->render('form/manager-change-password.html.twig', [
             'title' => 'Hypnos - Changement de mot de pase',

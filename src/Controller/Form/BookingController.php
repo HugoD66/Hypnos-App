@@ -18,13 +18,10 @@ class BookingController extends AbstractController
                           EntityManagerInterface $entityManager,
                           ManagerRegistry $doctrine): Response
     {
-
         $user = $this->getUser();
         if (!$this->getUser()) {
             return $this->redirectToRoute('app_login');
         }
-
-
         $booking = new Booking();
 //Form
         $form = $this->createForm(BookingFormType::class, $booking);
@@ -34,29 +31,21 @@ class BookingController extends AbstractController
             $booking->setDidAt($datetime);
             $booking->setClient($user);
             $booking->setIsActive(true);
-
-
 //Verification dispo
             $start_date = $request->request->get('start_date');
             $end_date = $request->request->get('start_end');
             $isPossibleBooking = $entityManager->getRepository(Booking::class)->isPossible($start_date, $end_date);
-
-
 //Push
                 if($isPossibleBooking) {
                     $booking = $form->getData();
-
                     $entityManager->persist($booking);
                     $entityManager->flush();
-
                     return $this->redirectToRoute('app_success_reservation');
                } else {
                     $this->addFlash('error', 'La suite choisie n\'est pas disponible à ces dates. ');
                     unset($newBooking);
                 }
-
             }
-
         return $this->render('form/booking.html.twig', [
             'title' => 'BookingController',
             'form' => $form->createView(),

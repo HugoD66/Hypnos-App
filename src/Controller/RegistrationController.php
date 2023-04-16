@@ -25,14 +25,17 @@ class RegistrationController extends AbstractController
     }
 
     #[Route('/register', name: 'app_register')]
-    public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
+    public function register(Request $request,
+                             UserPasswordHasherInterface $userPasswordHasher,
+                             EntityManagerInterface $entityManager):
+    Response
     {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // Hachage
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
@@ -40,11 +43,9 @@ class RegistrationController extends AbstractController
                 )
             );
             $user->setRoles(['ROLE_USER']);
-
             $entityManager->persist($user);
             $entityManager->flush();
-
-            // generate a signed url and email it to the user
+            // Verify Email
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
                     ->from(new Address('hypnos-hotel@gmail.com', 'Reception de courrier Hypnos'))
@@ -52,11 +53,8 @@ class RegistrationController extends AbstractController
                     ->subject('Please Confirm your Email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
             );
-            // do anything else you need here, like send an email
-
             return $this->redirectToRoute('app_success_register');
         }
-
         return $this->render('form/register.html.twig', [
             'registrationForm' => $form->createView(),
             'title' => 'Hypnos - Création de compte',

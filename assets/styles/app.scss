@@ -1120,8 +1120,22 @@ h5 {
   float: top;
   margin: 0px auto 5%;
 }     // Barre Horizontale 2//
+.input-search-suite {
+  float: right;
+  margin-right: 15%;
+  width: 250px;
+  margin-bottom: 7%;
+}
+.ment-pol {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  align-items: center;
+  width: 100%;
 
+}
 
+// Media Query (mobileFirst)//
 @media screen and (min-width: 970px) {
 
   .backFooter {
@@ -1136,7 +1150,7 @@ h5 {
   .customHotel {
     margin: 15%;
   }
-}     // Media Query (mobileFirst)//
+}
 @media screen and (min-width: 1280px) {
   .listButtons {
     width: 70%;
@@ -1244,20 +1258,6 @@ h5 {
   nav {
     background-image: url("../../public/picture/banque-image/nav-footer/BackNav-BlueResponsiveDesktop2.png");
   }
-}
-.input-search-suite {
-  float: right;
-  margin-right: 15%;
-  width: 250px;
-  margin-bottom: 7%;
-}
-.ment-pol {
-  display: flex;
-  justify-content: space-around;
-  margin: auto;
-  align-items: center;
-  width: 100%;
-
 }
 
 

@@ -26,6 +26,7 @@ class ManagerGestionController extends AbstractController
 
         $suiteById = $doctrine->getRepository(Suite::class)->findOneBy(['manager' => $manager]);
         $pictureListById = $doctrine->getRepository(PictureList::class)->findBy(['suite' => $suiteById]);
+
         return $this->render('gestion/manager.html.twig', [
             'title' => 'Hypnos - Gestion Manager',
             'manager' => $manager,

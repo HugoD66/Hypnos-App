@@ -51,7 +51,10 @@
             <tr>
                 <th scope="row">{{ managers.email }}</th>
                 <td>{{ managers.firstName }}</td>
+                {% if managers.hotel is empty %}
+                {% else %}
                 <td>{{ managers.hotel.name }}</td>
+                {% endif %}
             </tr>
         {% endfor %}
             </tbody>

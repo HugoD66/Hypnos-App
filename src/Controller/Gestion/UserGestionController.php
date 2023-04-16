@@ -13,7 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class UserGestionController extends AbstractController
 {
     #[Route('/user/{id}', name: 'app_user_gestion')]
-    public function index(ManagerRegistry $doctrine,int $id): Response
+    public function index(ManagerRegistry $doctrine,
+                          int $id): Response
     {
         $suite = $doctrine->getRepository(Suite::class)->findAll();
         $booking = $doctrine->getRepository(Booking::class)->findAll();

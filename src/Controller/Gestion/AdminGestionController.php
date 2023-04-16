@@ -18,9 +18,10 @@ class AdminGestionController extends AbstractController
                           int $id): Response
     {
         $admin = $doctrine->getRepository(User::class)->find($id);
-        $contact = $doctrine->getRepository(ContactUs::class)->getContactUsList();
         $hotelList = $doctrine->getRepository(Hotel::class)->findAll();
         $manager = $doctrine->getRepository(Manager::class)->findAll();
+        $contact = $doctrine->getRepository(ContactUs::class)->getContactUsList();
+
 
         return $this->render('gestion/admin.html.twig', [
             'title' => 'Hypnos - Gestion Administrateur',

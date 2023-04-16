@@ -24683,6 +24683,21 @@ h5, .h5 {
   margin: 0px auto 5%;
 }
 
+.input-search-suite {
+  float: right;
+  margin-right: 15%;
+  width: 250px;
+  margin-bottom: 7%;
+}
+
+.ment-pol {
+  display: flex;
+  justify-content: space-around;
+  margin: auto;
+  align-items: center;
+  width: 100%;
+}
+
 @media screen and (min-width: 970px) {
   .backFooter {
     /*background-image: url("../../public/picture/banque-image/back/footer-back2.png");*/
@@ -24821,20 +24836,6 @@ h5, .h5 {
   nav {
     background-image: url("../../public/picture/banque-image/nav-footer/BackNav-BlueResponsiveDesktop2.png");
   }
-}
-.input-search-suite {
-  float: right;
-  margin-right: 15%;
-  width: 250px;
-  margin-bottom: 7%;
-}
-
-.ment-pol {
-  display: flex;
-  justify-content: space-around;
-  margin: auto;
-  align-items: center;
-  width: 100%;
 }
 
 /*# sourceMappingURL=app.css.map */

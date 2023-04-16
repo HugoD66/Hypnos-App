@@ -50,7 +50,7 @@ security:
         - { path: ^/manager, roles: ROLE_MANAGER}
         - { path: ^/manager, roles: ROLE_MANAGER}
         - { path: ^/remove, roles: ROLE_MANAGER}
-        - { path: ^/add-suite, roles: ROLE_ADMIN}
+        - { path: ^/add-suite, roles: ROLE_MANAGER}
         - { path: ^/admin, roles: ROLE_ADMIN}
         - { path: ^/add-manager, roles: ROLE_ADMIN}
         - { path: ^/add-hotel, roles: ROLE_ADMIN}
